@@ -1,0 +1,138 @@
+local_backend: true
+backend:
+  name: git-gateway
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+i18n:
+  structure: multiple_folders
+  locales: [es, en]
+  default_locale: es
+
+collections:
+  - label: "Posts"
+    name: "post"
+    folder: "content/posts"
+    create: true
+    i18n: true
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Featured Image", name: "thumbnail", widget: "image" }
+      - { label: "Body", name: "body", widget: "markdown", i18n: true }
+  - label: "Adoptions"
+    name: "adoption"
+    folder: "content/adoptions"
+    create: true
+    i18n: true
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Birthdate", name: "birthdate", widget: "datetime" }
+      - {
+          label: "Gender",
+          name: "gender",
+          widget: "select",
+          options: ["Male", "Female"],
+        }
+      - { label: "Breed", name: "breed", widget: "string" }
+      - {
+          label: "Friendly to other pets",
+          name: "friendly_pets",
+          widget: "boolean",
+        }
+      - { label: "Vaccinated", name: "vaccinated", widget: "boolean" }
+      - {
+          label: "Children friendly",
+          name: "children_friendly",
+          widget: "boolean",
+        }
+      - { label: "Featured Image", name: "thumbnail", widget: "image" }
+      - { label: "Body", name: "body", widget: "markdown", i18n: true }
+  - label: "Pages"
+    name: "pages"
+    i18n:
+      structure: single_file
+      locales: [es, en]
+    files:
+      - label: "Home Page"
+        name: "home"
+        file: "content/pages/home.yml"
+        i18n: true
+        fields:
+          - {
+              label: "Show Adoptions section?",
+              name: adoption_show,
+              widget: boolean,
+              required: false,
+            }
+          - {
+              label: "Adoption Title",
+              name: adoption_title,
+              widget: string,
+              i18n: true,
+            }
+          - {
+              label: "Adoption Subtitle",
+              name: adoption_subtitle,
+              widget: string,
+              i18n: true,
+            }
+      - label: "About Page"
+        name: "about"
+        file: "content/pages/about.yml"
+        i18n: true
+        fields:
+          - { label: Title, name: title, widget: string, i18n: true }
+          - { label: Intro, name: intro, widget: markdown, i18n: true }
+      - label: "Contact Page"
+        name: "contact"
+        file: "content/pages/contact.yml"
+        i18n: true
+        fields:
+          - { label: Title, name: title, widget: string, i18n: true }
+          - { label: Email, name: email, widget: string }
+          - { label: Intro, name: intro, widget: markdown, i18n: true }
+          - label: "Social Media"
+            name: social
+            widget: list
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: URL, name: url, widget: string }
+  - label: "Metadata"
+    name: "metadata"
+    i18n:
+      structure: single_file
+      locales: [es, en]
+    files:
+      - label: "Page"
+        name: "page"
+        file: "content/page.yml"
+        i18n: true
+        fields:
+          - { label: "Page Title", name: title, widget: string, i18n: true }
+          - { label: "Slogan", name: slogan, widget: string, i18n: true }
+          - { label: "Logo", name: "logo", widget: "image" }
+      - label: "Social"
+        name: "social"
+        file: "content/social.yml"
+        fields:
+          - label: "Title"
+            name: title
+            widget: string
+            i18n: true
+          - label: "Social"
+            name: social
+            widget: list
+            fields:
+              - { label: "Name", name: name, widget: string }
+              - { label: "URL", name: url, widget: string }
+      - label: "Contact"
+        name: "contact"
+        file: "content/contact.yml"
+        i18n: true
+        fields:
+          - label: "Email"
+            name: email
+            widget: string
+            required: false
