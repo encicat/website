@@ -7,7 +7,10 @@ export default config({
 
   storage: {
     kind: 'github',
-    repo: 'encicat/website',
+    repo: {
+      owner: 'encicat',
+      name: 'website',
+    },
   },
 
   singletons: {
