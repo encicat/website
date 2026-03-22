@@ -1,8 +1,8 @@
 import * as React from 'react';
-import Markdoc, { Node } from '@markdoc/markdoc';
+import * as Markdoc from '@markdoc/markdoc';
 
 interface Props {
-  document: { node: Node };
+  document: { node: Markdoc.Node };
 }
 
 export const DocumentRenderer: React.FC<Props> = ({ document }) => {
