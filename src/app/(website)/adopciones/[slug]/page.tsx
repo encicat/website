@@ -31,15 +31,18 @@ export default async function AdoptionPage({
       <div className="max-w-5xl mx-auto py-20 px-4 lg:px-0">
         <h2 className="text-4xl">{adoption.name}</h2>
       </div>
-      <div
-        className="h-[60vh] w-full"
-        style={{
-          backgroundImage: `url(${adoption.image})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-        }}
-      />
+
+      {adoption.image && adoption.image !== '' && (
+        <div
+          className="h-[60vh] w-full"
+          style={{
+            backgroundImage: `url(${adoption.image})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+          }}
+        />
+      )}
       <div className="max-w-5xl mx-auto py-20 px-4 lg:px-0">
         <div className="mb-8 flex gap-4">
           <Gender gender={adoption.gender as 'male' | 'female'} />
@@ -51,14 +54,16 @@ export default async function AdoptionPage({
         </div>
       </div>
       <div className="grid grid-cols-4">
-        <div className="relative h-100">
-          <Image
-            src={String(adoption.image)}
-            alt={`Foto principal de la adopción de ${adoption.name}`}
-            fill
-            className="object-cover"
-          />
-        </div>
+        {adoption.image && adoption.image !== '' && (
+          <div className="relative h-100">
+            <Image
+              src={String(adoption.image)}
+              alt={`Foto principal de la adopción de ${adoption.name}`}
+              fill
+              className="object-cover"
+            />
+          </div>
+        )}
         {adoption.images.map((image) => (
           <div key={image} className="relative h-100">
             <Image

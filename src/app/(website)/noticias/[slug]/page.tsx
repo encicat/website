@@ -28,15 +28,17 @@ export default async function PostPage({
       <div className="max-w-5xl mx-auto py-20 px-4 lg:px-0">
         <h2 className="text-4xl">{post.title}</h2>
       </div>
-      <div
-        className="h-[60vh] w-full"
-        style={{
-          backgroundImage: `url(${post.image})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-        }}
-      />
+      {post.image && post.image !== '' && (
+        <div
+          className="h-[60vh] w-full"
+          style={{
+            backgroundImage: `url(${post.image})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+          }}
+        />
+      )}
       <div className="max-w-5xl mx-auto py-20 px-4 lg:px-0">
         <DocumentRenderer document={await post.content()} />
         <div className="mt-16">
