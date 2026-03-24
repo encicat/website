@@ -11,11 +11,17 @@ interface Props {
 }
 
 export const Cookies: React.FC<Props> = ({ children }) => {
-  const [show, setShow] = React.useState(
-    () =>
+  const [show, setShow] = React.useState(false);
+
+  React.useEffect(() => {
+    if (
       !hasCookie('encicat-cookie-banner') ||
-      getCookie('encicat-cookie-banner') !== 'hide',
-  );
+      getCookie('encicat-cookie-banner') !== 'hide'
+    ) {
+      setShow(true);
+    }
+  }, []);
+
   return (
     show && (
       <div className="fixed bottom-0 bg-white m-8 p-8 border-green-700 border lg:w-1/2 rounded-4xl z-1000 shadow-xl">
