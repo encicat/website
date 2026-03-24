@@ -4,6 +4,7 @@ import * as React from 'react';
 
 import { Button } from '../Button';
 import { hasCookie, setCookie } from 'cookies-next/client';
+import { getCookie } from 'cookies-next';
 
 interface Props {
   children: React.ReactNode;
@@ -11,7 +12,9 @@ interface Props {
 
 export const Cookies: React.FC<Props> = ({ children }) => {
   const [show, setShow] = React.useState(
-    () => !hasCookie('encicat-cookie-banner'),
+    () =>
+      !hasCookie('encicat-cookie-banner') ||
+      getCookie('encicat-cookie-banner') !== 'hide',
   );
   return (
     show && (
