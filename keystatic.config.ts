@@ -128,7 +128,7 @@ export default config({
           directory: 'public/images/posts',
           publicPath: '/images/posts/',
         }),
-        publishedAt: fields.datetime({ label: 'Fecha de publicación' }),
+        publishedAt: fields.date({ label: 'Fecha de publicación' }),
         content: fields.markdoc({ label: 'Contenido' }),
       },
     }),
