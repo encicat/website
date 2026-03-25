@@ -1,4 +1,5 @@
 import { reader } from '@/src/helpers/reader';
+import { compareDesc } from 'date-fns';
 
 import { Section } from '@/src/components/Section';
 import { SectionTitle } from '@/src/components/SectionTitle';
@@ -6,7 +7,9 @@ import { AdoptionItem } from '@/src/components/AdoptionItem';
 import { Grid } from '@/src/components/Grid/Grid';
 
 export default async function AdoptionsPage() {
-  const adoptions = await reader.collections.adoptions.all();
+  const adoptions = (await reader.collections.adoptions.all()).sort((a, b) =>
+    compareDesc(a?.entry?.publishedAt ?? '', b?.entry?.publishedAt ?? ''),
+  );
   return (
     <Section>
       <SectionTitle

@@ -1,5 +1,6 @@
-import { reader } from '@/src/helpers/reader';
+import { compareDesc } from 'date-fns';
 
+import { reader } from '@/src/helpers/reader';
 import { Section } from '@/src/components/Section';
 import { SectionTitle } from '@/src/components/SectionTitle';
 import { Card } from '@/src/components/Card';
@@ -10,7 +11,11 @@ import { DonationItem } from '@/src/components/DonationItem';
 
 export default async function HomePage() {
   const posts = (await reader.collections.posts.all()).slice(0, 2);
-  const adoptions = (await reader.collections.adoptions.all()).slice(0, 3);
+  const adoptions = (await reader.collections.adoptions.all())
+    .sort((a, b) =>
+      compareDesc(a?.entry?.publishedAt ?? '', b?.entry?.publishedAt ?? ''),
+    )
+    .slice(0, 3);
   const donation_methods = await reader.singletons.donation_methods.read();
   const home_page = await reader.singletons.home_page.read();
 

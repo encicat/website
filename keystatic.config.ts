@@ -137,6 +137,7 @@ export default config({
       slugField: 'name',
       path: 'content/adoptions/*/',
       format: { contentField: 'content' },
+      columns: ['name', 'publishedAt'],
       schema: {
         name: fields.slug({ name: { label: 'Nombre' } }),
         birthdate: fields.date({ label: 'Fecha de nacimiento' }),
