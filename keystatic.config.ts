@@ -182,11 +182,11 @@ export default config({
           directory: 'public/images/adoptions',
           publicPath: '/images/adoptions/',
         }),
-        adoptedAt: fields.datetime({
+        adoptedAt: fields.date({
           label: 'Fecha de adopción',
           description: 'Cuando esté adoptado',
         }),
-        publishedAt: fields.datetime({ label: 'Fecha de publicación' }),
+        publishedAt: fields.date({ label: 'Fecha de publicación' }),
         content: fields.markdoc({ label: 'Contenido' }),
         images: fields.array(
           fields.image({
