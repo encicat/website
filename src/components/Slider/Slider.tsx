@@ -1,8 +1,3 @@
-'use client';
-
-import Image from 'next/image';
-import { BackgroundVideo } from '../BackgroundVideo';
-
 interface Props {}
 
 export const Slider: React.FC<Props> = () => (
@@ -18,27 +13,6 @@ export const Slider: React.FC<Props> = () => (
       <div className="text-2xl">
         Tu protectora de confianza en nuestro ámbito territorial
       </div>
-    </div>
-  </div>
-);
-
-interface Props1 {
-  videoId: string;
-}
-
-export const Slider2: React.FC<Props1> = ({ videoId }) => (
-  <div
-    className="text-white block relative"
-    style={{ height: 'calc(100dvh - 80px - 40px)' }}
-  >
-    <BackgroundVideo videoId={videoId} />
-
-    <div className="relative z-20 flex flex-col items-center justify-end h-full">
-      <div className="text-white text-7xl">Bienvenido a EnciCat</div>
-      <div className="text-white text-2xl">
-        Tu protectora de confianza en nuestro ámbito territorial
-      </div>
-      <Image src="/images/cat.png" alt="Ornamentación de slider" />
     </div>
   </div>
 );

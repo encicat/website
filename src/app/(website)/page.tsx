@@ -21,7 +21,6 @@ export default async function HomePage() {
 
   return (
     <main>
-      {/* <Slider videoId="2mLRTwBk9TU" /> */}
       <Slider />
       {home_page?.adoption_show === 'yes' && (
         <Section>
