@@ -10,6 +10,7 @@ export default async function AdoptionsPage() {
   const adoptions = (await reader.collections.adoptions.all()).sort((a, b) =>
     compareDesc(a?.entry?.publishedAt ?? '', b?.entry?.publishedAt ?? ''),
   );
+
   return (
     <Section>
       <SectionTitle

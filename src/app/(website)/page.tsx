@@ -10,7 +10,11 @@ import { Button } from '@/src/components/Button';
 import { DonationItem } from '@/src/components/DonationItem';
 
 export default async function HomePage() {
-  const posts = (await reader.collections.posts.all()).slice(0, 2);
+  const posts = (await reader.collections.posts.all())
+    .sort((a, b) =>
+      compareDesc(a?.entry?.publishedAt ?? '', b?.entry?.publishedAt ?? ''),
+    )
+    .slice(0, 2);
   const adoptions = (await reader.collections.adoptions.all())
     .sort((a, b) =>
       compareDesc(a?.entry?.publishedAt ?? '', b?.entry?.publishedAt ?? ''),
