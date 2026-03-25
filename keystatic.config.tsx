@@ -120,7 +120,9 @@ export default config({
       label: 'Entradas',
       slugField: 'title',
       path: 'content/posts/*/',
+      entryLayout: 'content',
       format: { contentField: 'content' },
+      columns: ['title', 'publishedAt'],
       schema: {
         title: fields.slug({ name: { label: 'Título' } }),
         image: fields.image({
@@ -202,5 +204,33 @@ export default config({
         ),
       },
     }),
+  },
+
+  ui: {
+    navigation: [
+      '---',
+      'adoptions',
+      'posts',
+      '---',
+      'home_page',
+      'help_page',
+      'terms_page',
+      'privacy_page',
+      '---',
+      'settings',
+      'social',
+      'donation_methods',
+    ],
+    brand: {
+      name: 'EnciCat',
+      mark: ({ colorScheme }) => {
+        let path =
+          colorScheme === 'dark'
+            ? '/images/logo-dark-small-64x64.png'
+            : '/images/logo-light-small-64x64.png';
+
+        return <img src={path} height={24} />;
+      },
+    },
   },
 });
