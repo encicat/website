@@ -80,10 +80,7 @@ export default async function HomePage() {
               imgSrc={post?.image ?? ''}
               date={String(post.publishedAt)}
               url={`/noticias/${slug}`}
-            >
-              {/* <DocumentRenderer document={await post.content()} /> */}
-              test
-            </Card>
+            />
           ))}
         </div>
         <div className="flex justify-center mt-16">

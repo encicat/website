@@ -18,10 +18,7 @@ export default async function PostsPage() {
             imgSrc={post?.image ?? ''}
             date={String(post.publishedAt)}
             url={`/noticias/${slug}`}
-          >
-            {/* <DocumentRenderer document={await post.content()} /> */}
-            test
-          </Card>
+          />
         ))}
       </Grid>
     </Section>

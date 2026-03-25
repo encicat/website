@@ -5,7 +5,7 @@ import { DateTag } from '../DateTag';
 import Image from 'next/image';
 
 interface Props {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   title: string;
   imgSrc?: string;
   date?: string;
@@ -35,7 +35,7 @@ export const Card: React.FC<Props> = ({
       <Link className="text-xl font-bold mb-4 block link" href={url}>
         {title}
       </Link>
-      <div className="mb-4">{children}</div>
+      {children && <div className="mb-4">{children}</div>}
       <Button href={url}>Leer más...</Button>
     </div>
   </div>
