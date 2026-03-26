@@ -166,9 +166,9 @@ export default config({
           defaultValue: 'mix',
           options: [{ value: 'mix', label: 'Mixto' }],
         }),
-        pets_friendly: fields.select({
-          label: 'Amistoso con otros animales',
-          defaultValue: 'no',
+        friendly: fields.select({
+          label: 'Amistoso',
+          defaultValue: 'yes',
           options: [
             { value: 'yes', label: 'Sí' },
             { value: 'no', label: 'No' },
@@ -182,12 +182,29 @@ export default config({
             { value: 'no', label: 'No' },
           ],
         }),
-        children_friendly: fields.select({
-          label: 'Amistoso con ninos?',
+        dewormed: fields.select({
+          label: 'Desparasitado?',
           defaultValue: 'no',
           options: [
             { value: 'yes', label: 'Sí' },
             { value: 'no', label: 'No' },
+          ],
+        }),
+        micro: fields.select({
+          label: 'Microchip?',
+          defaultValue: 'no',
+          options: [
+            { value: 'yes', label: 'Sí' },
+            { value: 'no', label: 'No' },
+          ],
+        }),
+        tested: fields.select({
+          label: 'Test FELV/FIV negativo?',
+          defaultValue: 'not_yet',
+          options: [
+            { value: 'yes', label: 'Sí' },
+            { value: 'no', label: 'No' },
+            { value: 'not_yet', label: 'No pasado aún' },
           ],
         }),
         image: fields.image({
