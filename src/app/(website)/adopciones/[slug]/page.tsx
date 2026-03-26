@@ -1,11 +1,12 @@
 import { notFound } from 'next/navigation';
+import { Node } from '@markdoc/markdoc';
+import Image from 'next/image';
 
 import { reader } from '@/src/helpers/reader';
 import { DocumentRenderer } from '@/src/components/DocumentRenderer';
 import { Gender } from '@/src/components/Gender';
 import { Age } from '@/src/components/Age';
 import { Share } from '@/src/components/Share';
-import Image from 'next/image';
 
 export async function generateStaticParams() {
   const adoptions = await reader.collections.adoptions.all();
@@ -21,6 +22,8 @@ export default async function AdoptionPage({
 }) {
   const { slug } = await params;
   const adoption = await reader.collections.adoptions.read(slug);
+  const adoption_page = await reader.singletons.adoption_page.read();
+  const conditions = (await adoption_page?.content()) as { node: Node };
 
   if (!adoption) {
     notFound();
@@ -49,6 +52,10 @@ export default async function AdoptionPage({
           <Age birthdate={String(adoption.birthdate)} />
         </div>
         <DocumentRenderer document={await adoption.content()} />
+        <div className="mt-16">
+          <div className="text-2xl mb-8 uppercase">Condiciones de adopción:</div>
+          <DocumentRenderer document={conditions} />
+        </div>
         <div className="mt-16">
           <Share shareText="Ayudanos a conseguir la adopción responsable" />
         </div>

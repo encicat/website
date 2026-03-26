@@ -1,3 +1,5 @@
+import { prefixIfContent } from './helper';
+
 export const removeAttrs = (attrs: Record<string, any>, forRemove: string[]) =>
   Object.entries(attrs).reduce(
     (prev, curr) =>
@@ -6,6 +8,9 @@ export const removeAttrs = (attrs: Record<string, any>, forRemove: string[]) =>
   );
 
 export const renderAttrs = (attrs: Record<string, any>) =>
-  Object.entries(attrs)
-    .map(([key, val]) => `${key}="${val}"`)
-    .join(' ');
+  prefixIfContent(
+    Object.entries(attrs)
+      .map(([key, val]) => `${key}="${val}"`)
+      .join(' '),
+    ' ',
+  );
