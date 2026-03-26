@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import { Header } from '@/src/components/Header';
 import { TopBar } from '@/src/components/TopBar/TopBar';
@@ -18,7 +19,7 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function Layout ({
+export default async function Layout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -45,6 +46,7 @@ export default async function Layout ({
         <Cookies>
           <DocumentRenderer document={settings.cookies_message} />
         </Cookies>
+        <SpeedInsights />
       </body>
     </html>
   );
