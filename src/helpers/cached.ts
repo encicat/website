@@ -1,5 +1,5 @@
+import type { Node } from '@markdoc/markdoc';
 import { unstable_cache } from 'next/cache';
-import { Node } from '@markdoc/markdoc';
 
 import { reader } from './reader';
 

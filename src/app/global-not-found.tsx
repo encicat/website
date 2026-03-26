@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
-import { Section } from '@/src/components/Section';
 import { Button } from '@/src/components/Button';
+import { Section } from '@/src/components/Section';
 import Layout from './(website)/layout';
 
 export default function NotFound() {

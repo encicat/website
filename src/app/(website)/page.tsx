@@ -1,13 +1,13 @@
 import { compareDesc } from 'date-fns';
 
-import { reader } from '@/src/helpers/reader';
-import { Section } from '@/src/components/Section';
-import { SectionTitle } from '@/src/components/SectionTitle';
-import { Card } from '@/src/components/Card';
-import { Slider } from '@/src/components/Slider';
 import { AdoptionItem } from '@/src/components/AdoptionItem';
 import { Button } from '@/src/components/Button';
+import { Card } from '@/src/components/Card';
 import { DonationItem } from '@/src/components/DonationItem';
+import { Section } from '@/src/components/Section';
+import { SectionTitle } from '@/src/components/SectionTitle';
+import { Slider } from '@/src/components/Slider';
+import { reader } from '@/src/helpers/reader';
 
 export default async function HomePage() {
   const posts = (await reader.collections.posts.all())

@@ -1,10 +1,9 @@
 'use client';
 
+import { getCookie, hasCookie, setCookie } from 'cookies-next/client';
 import * as React from 'react';
 
 import { Button } from '../Button';
-import { hasCookie, setCookie } from 'cookies-next/client';
-import { getCookie } from 'cookies-next';
 
 interface Props {
   children: React.ReactNode;

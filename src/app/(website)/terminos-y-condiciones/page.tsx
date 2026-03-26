@@ -1,8 +1,7 @@
-import { reader } from '@/src/helpers/reader';
-
-import { Section } from '@/src/components/Section';
-import { Hero } from '@/src/components/Hero';
 import { DocumentRenderer } from '@/src/components/DocumentRenderer';
+import { Hero } from '@/src/components/Hero';
+import { Section } from '@/src/components/Section';
+import { reader } from '@/src/helpers/reader';
 
 export default async function TermsPage() {
   const terms_page = await reader.singletons.terms_page.read();

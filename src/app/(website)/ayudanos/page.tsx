@@ -1,10 +1,9 @@
-import { reader } from '@/src/helpers/reader';
-
-import { Section } from '@/src/components/Section';
-import { Hero } from '@/src/components/Hero';
-import { DonationItem } from '@/src/components/DonationItem';
 import { DocumentRenderer } from '@/src/components/DocumentRenderer';
+import { DonationItem } from '@/src/components/DonationItem';
 import { Grid } from '@/src/components/Grid/Grid';
+import { Hero } from '@/src/components/Hero';
+import { Section } from '@/src/components/Section';
+import { reader } from '@/src/helpers/reader';
 
 export default async function HelpPage() {
   const donation_methods = await reader.singletons.donation_methods.read();

@@ -1,10 +1,10 @@
 import { compareDesc } from 'date-fns';
 
-import { reader } from '@/src/helpers/reader';
-import { Section } from '@/src/components/Section';
-import { SectionTitle } from '@/src/components/SectionTitle';
 import { Card } from '@/src/components/Card';
 import { Grid } from '@/src/components/Grid/Grid';
+import { Section } from '@/src/components/Section';
+import { SectionTitle } from '@/src/components/SectionTitle';
+import { reader } from '@/src/helpers/reader';
 
 export default async function PostsPage() {
   const posts = (await reader.collections.posts.all()).sort((a, b) =>

@@ -19,7 +19,7 @@ after:content[]  after:inline-block  after:relative  after:top-[-7]  after:w-[32
     )}
     <div className={`text-4xl uppercase text-center font-bold`}>{title}</div>
     <div className="flex justify-center mt-4">
-      <PawPrint className='text-green-700' />
+      <PawPrint className="text-green-700" />
     </div>
   </div>
 );

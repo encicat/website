@@ -1,6 +1,4 @@
-interface Props {}
-
-export const Slider: React.FC<Props> = () => (
+export const Slider: React.FC = () => (
   <div
     className="block relative border-b-gray-100 border-b"
     style={{

@@ -18,11 +18,11 @@ import {
 } from 'react-share';
 
 export const networks = [
-  { Button: WhatsappShareButton, Icon: SiWhatsapp },
-  { Button: TelegramShareButton, Icon: SiTelegram },
-  { Button: FacebookShareButton, Icon: SiFacebook },
-  { Button: TwitterShareButton, Icon: SiX },
-  { Button: ThreadsShareButton, Icon: SiThreads },
-  { Button: BlueskyShareButton, Icon: SiBluesky },
-  { Button: EmailShareButton, Icon: Mail },
+  { key: 'whatsapp', Button: WhatsappShareButton, Icon: SiWhatsapp },
+  { key: 'telegram', Button: TelegramShareButton, Icon: SiTelegram },
+  { key: 'facebook', Button: FacebookShareButton, Icon: SiFacebook },
+  { key: 'twitter', Button: TwitterShareButton, Icon: SiX },
+  { key: 'threads', Button: ThreadsShareButton, Icon: SiThreads },
+  { key: 'bluesky', Button: BlueskyShareButton, Icon: SiBluesky },
+  { key: 'email', Button: EmailShareButton, Icon: Mail },
 ];

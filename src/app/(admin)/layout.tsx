@@ -1,9 +1,8 @@
-// src/app/keystatic/layout.tsx
 import KeystaticApp from './keystatic';
 
 export default function Layout() {
   return (
-    <html>
+    <html lang="es">
       <body>
         <KeystaticApp />
       </body>

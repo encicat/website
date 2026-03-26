@@ -1,8 +1,8 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 import { Button } from '../Button';
 import { DateTag } from '../DateTag';
-import Image from 'next/image';
 
 interface Props {
   children?: React.ReactNode;

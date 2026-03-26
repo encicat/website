@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation';
 
-import { reader } from '@/src/helpers/reader';
 import { DocumentRenderer } from '@/src/components/DocumentRenderer';
 import { Share } from '@/src/components/Share';
+import { reader } from '@/src/helpers/reader';
 
 export async function generateStaticParams() {
   const posts = await reader.collections.posts.all();

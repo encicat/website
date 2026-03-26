@@ -1,4 +1,5 @@
-import { config, fields, collection, singleton } from '@keystatic/core';
+import { collection, config, fields, singleton } from '@keystatic/core';
+import Image from 'next/image';
 
 export default config({
   // storage: {
@@ -251,14 +252,18 @@ export default config({
     ],
     brand: {
       name: 'EnciCat',
-      mark: ({ colorScheme }) => {
-        let path =
-          colorScheme === 'dark'
-            ? '/images/logo-dark-small-64x64.png'
-            : '/images/logo-light-small-64x64.png';
-
-        return <img src={path} height={24} />;
-      },
+      mark: ({ colorScheme }) => (
+        <Image
+          src={
+            colorScheme === 'dark'
+              ? '/images/logo-dark-small-64x64.png'
+              : '/images/logo-light-small-64x64.png'
+          }
+          height={24}
+          width={24}
+          alt={'Logo'}
+        />
+      ),
     },
   },
 });

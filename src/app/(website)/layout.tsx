@@ -1,11 +1,11 @@
-import type { Metadata } from 'next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import type { Metadata } from 'next';
 
-import { Header } from '@/src/components/Header';
-import { TopBar } from '@/src/components/TopBar/TopBar';
-import { Footer } from '@/src/components/Footer';
 import { Cookies } from '@/src/components/Cookies';
 import { DocumentRenderer } from '@/src/components/DocumentRenderer';
+import { Footer } from '@/src/components/Footer';
+import { Header } from '@/src/components/Header';
+import { TopBar } from '@/src/components/TopBar/TopBar';
 import { getCachedSettings, getCachedSocial } from '@/src/helpers/cached';
 
 import './globals.css';

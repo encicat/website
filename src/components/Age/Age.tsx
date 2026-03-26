@@ -1,6 +1,7 @@
 import { Cake } from 'lucide-react';
-import { Chip } from '../Chip';
+
 import { getAgeMaximized } from '@/src/helpers/date';
+import { Chip } from '../Chip';
 
 interface Props {
   birthdate: string;

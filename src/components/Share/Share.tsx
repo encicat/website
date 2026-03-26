@@ -24,8 +24,8 @@ export const Share: React.FC<Props> = ({ shareText = '' }) => {
       <div>
         <div className="font-bold text-xl mb-2">{shareText}</div>
         <div className="flex gap-2">
-          {networks.map(({ Button, Icon }, idx) => (
-            <Button url={url} key={idx}>
+          {networks.map(({ Button, Icon, key }) => (
+            <Button url={url} key={key}>
               <div className={className}>
                 <Icon className={iconClassName} />
               </div>

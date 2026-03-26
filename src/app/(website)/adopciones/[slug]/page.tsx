@@ -1,14 +1,14 @@
-import { notFound } from 'next/navigation';
-import { Node } from '@markdoc/markdoc';
-import Image from 'next/image';
+import type { Node } from '@markdoc/markdoc';
 import { Bug, Cat, CheckCheck, Cpu, Syringe } from 'lucide-react';
+import Image from 'next/image';
+import { notFound } from 'next/navigation';
 
-import { reader } from '@/src/helpers/reader';
+import { Age } from '@/src/components/Age';
+import { Chip } from '@/src/components/Chip';
 import { DocumentRenderer } from '@/src/components/DocumentRenderer';
 import { Gender } from '@/src/components/Gender';
-import { Age } from '@/src/components/Age';
 import { Share } from '@/src/components/Share';
-import { Chip } from '@/src/components/Chip';
+import { reader } from '@/src/helpers/reader';
 
 export async function generateStaticParams() {
   const adoptions = await reader.collections.adoptions.all();

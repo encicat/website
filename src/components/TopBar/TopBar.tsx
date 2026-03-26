@@ -1,6 +1,6 @@
 import { Mail } from 'lucide-react';
 
-import { getSocialIcon, SocialNetworks } from '@/src/helpers/social';
+import { getSocialIcon, type SocialNetworks } from '@/src/helpers/social';
 
 interface Props {
   socials_networks?: SocialNetworks;
@@ -20,7 +20,7 @@ export const TopBar: React.FC<Props> = ({ email, socials_networks = [] }) => (
             const Icon = getSocialIcon(item.name);
             return (
               <li key={item.name} className="pl-2">
-                <a href={item.url} target="_blank">
+                <a href={item.url} target="_blank" rel="noopener noreferrer">
                   <Icon title={item.name} />
                 </a>
               </li>

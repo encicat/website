@@ -4,9 +4,9 @@ import {
   SiTiktok,
   SiYoutube,
 } from '@icons-pack/react-simple-icons';
-import { Entry } from '@keystatic/core/reader';
+import type { Entry } from '@keystatic/core/reader';
 
-import keystaticConfig from '@/keystatic.config';
+import type keystaticConfig from '@/keystatic.config';
 
 export const socialIconMap = {
   instagram: SiInstagram,

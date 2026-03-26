@@ -1,13 +1,22 @@
+import { produce } from 'immer';
+
 import { prefixIfContent } from './helper';
 
-export const removeAttrs = (attrs: Record<string, any>, forRemove: string[]) =>
+export const removeAttrs = (
+  attrs: Record<string, string | number>,
+  forRemove: string[],
+) =>
   Object.entries(attrs).reduce(
-    (prev, curr) =>
-      forRemove.includes(curr[0]) ? prev : { ...prev, [curr[0]]: curr[1] },
+    (prev, [key, value]) =>
+      forRemove.includes(key)
+        ? prev
+        : produce(prev, (draft) => {
+            Object.assign(draft, { [key]: value });
+          }),
     {},
   );
 
-export const renderAttrs = (attrs: Record<string, any>) =>
+export const renderAttrs = (attrs: Record<string, string | number>) =>
   prefixIfContent(
     Object.entries(attrs)
       .map(([key, val]) => `${key}="${val}"`)
