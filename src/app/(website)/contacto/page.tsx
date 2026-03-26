@@ -12,7 +12,7 @@ export default async function ContactPage() {
   const social = await reader.singletons.social.read();
   return (
     <>
-      <Hero bgImgSrc="/images/bg-256.png">
+      <Hero bgImgSrc="/images/bg.png">
         <h2 className="text-4xl uppercase">Contacto</h2>
       </Hero>
       <Section>

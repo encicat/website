@@ -12,7 +12,7 @@ export default async function HelpPage() {
   const content = await help_page?.content();
   return (
     <>
-      <Hero bgImgSrc="/images/bg-256.png">
+      <Hero bgImgSrc="/images/bg.png">
         <h2 className="text-4xl uppercase">Ayudanos</h2>
       </Hero>
       <Section>

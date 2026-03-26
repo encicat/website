@@ -9,7 +9,7 @@ export default async function PrivacyPage() {
   const content = await privacy_page?.content();
   return (
     <>
-      <Hero bgImgSrc="/images/bg-256.png">
+      <Hero bgImgSrc="/images/bg.png">
         <h2 className="text-4xl uppercase">{privacy_page?.title}</h2>
       </Hero>
       <Section>

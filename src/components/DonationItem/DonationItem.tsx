@@ -7,7 +7,7 @@ import { TextCard } from '../TextCard';
 const icons = {
   bizum: (
     <Image
-      src="/images/bizum.svg"
+      src="/images/bizum.png"
       alt="Logotipo de Bizum"
       width={24}
       height={24}
@@ -15,7 +15,7 @@ const icons = {
   ),
   teaming: (
     <Image
-      src="/images/teaming.svg"
+      src="/images/teaming.png"
       alt="Logotipo de Teaming"
       width={24}
       height={24}
@@ -24,7 +24,7 @@ const icons = {
   paypal: <SiPaypal />,
   'lista de deseos de amazon': (
     <Image
-      src="/images/amazon.svg"
+      src="/images/amazon.png"
       alt="Logotipo de Amazon"
       width={24}
       height={24}
