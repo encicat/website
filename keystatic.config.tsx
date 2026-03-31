@@ -1,6 +1,8 @@
 import { collection, config, fields, singleton } from '@keystatic/core';
 import Image from 'next/image';
 
+import { imageCropped } from './src/customFields';
+
 export default config({
   // storage: {
   //   kind: 'local',
@@ -208,11 +210,24 @@ export default config({
             { value: 'not_yet', label: 'No pasado aún' },
           ],
         }),
-        image: fields.image({
+        image: imageCropped({
           label: 'Imágen destacada',
           directory: 'public/images/adoptions',
           publicPath: '/images/adoptions/',
         }),
+        // image: fields.image({
+        //   label: 'Imágen destacada',
+        //   directory: 'public/images/adoptions',
+        //   publicPath: '/images/adoptions/',
+        // }),
+        // image: fields.custom({
+        //   label: 'Imágen destacada',
+        //   directory: 'public/images/adoptions',
+        //   kind: 'form',
+        //   component: ImageCropper,
+        //   serialize: (value) => JSON.stringify(value),
+        //   deserialize: (value) => (value ? JSON.parse(value) : null),
+        // }),
         adoptedAt: fields.date({
           label: 'Fecha de adopción',
           description: 'Cuando esté adoptado',
