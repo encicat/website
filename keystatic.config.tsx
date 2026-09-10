@@ -263,6 +263,10 @@ export default config({
           label: 'Mostrar métodos de donación',
           defaultValue: false,
         }),
+        adoptions_list: fields.checkbox({
+          label: 'Mostrar listado de adopciones',
+          defaultValue: false,
+        }),
         content: fields.markdoc({ label: 'Contenido' }),
       },
     }),
