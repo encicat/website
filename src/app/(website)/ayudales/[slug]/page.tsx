@@ -18,6 +18,7 @@ import { reader } from '@/src/helpers/reader';
 
 const ADOPTIONS_HEADING = 'Gatos disponibles';
 const PAYMENTS_HEADING = '¿Cómo puedo hacerlo?';
+const CTA_HEADING = '¿Quieres ser casa de acogida?';
 
 const getNodeText = (node: Node): string =>
   typeof node.attributes?.content === 'string'
@@ -105,6 +106,8 @@ export default async function HelpDetailPage({
     page.payment_options.length > 0
       ? findHeading(children, PAYMENTS_HEADING)
       : -1;
+  const ctaHeading =
+    page.cta?.label && page.cta?.url ? findHeading(children, CTA_HEADING) : -1;
 
   const insertions: { index: number; node: React.ReactNode }[] = [];
 
@@ -146,6 +149,18 @@ export default async function HelpDetailPage({
               </DonationItem>
             ))}
           </Grid>
+        </div>
+      ),
+    });
+  }
+
+  if (page.cta?.label && page.cta?.url) {
+    insertions.push({
+      index:
+        ctaHeading === -1 ? children.length : sectionEnd(children, ctaHeading),
+      node: (
+        <div className="my-8 flex justify-center px-6 lg:px-0">
+          <Button href={page.cta.url}>{page.cta.label}</Button>
         </div>
       ),
     });
@@ -210,11 +225,6 @@ export default async function HelpDetailPage({
                 </DonationItem>
               ))}
             </Grid>
-          </div>
-        )}
-        {page.cta?.label && page.cta?.url && (
-          <div className="mt-12 flex justify-center px-6 lg:px-0">
-            <Button href={page.cta.url}>{page.cta.label}</Button>
           </div>
         )}
       </Section>
