@@ -9,7 +9,7 @@ export const Hero: React.FC<Props> = ({
   bgImgSrc,
   bgFixed = true,
 }) => (
-  <div className="w-full block px-6 py-12 md:p-12 relative  border-b-gray-100 border-b">
+  <div className="w-full block px-6 py-12 md:p-12 relative border-b-2 border-b-gray-200">
     {bgImgSrc && (
       <div
         className={`absolute inset-0 -z-10 ${bgFixed ? 'md:bg-fixed' : ''}`}
