@@ -131,16 +131,18 @@ export default async function AdoptionPage({
             />
           </div>
         )}
-        {adoption.images.map((image) => (
-          <div key={image} className="relative aspect-square">
-            <Image
-              src={String(image)}
-              alt={`Foto de ${adoption.name}`}
-              fill
-              className="object-cover"
-            />
-          </div>
-        ))}
+        {adoption.images
+          .filter((image): image is string => image !== null && image !== '')
+          .map((image) => (
+            <div key={image} className="relative aspect-square">
+              <Image
+                src={image}
+                alt={`Foto de ${adoption.name}`}
+                fill
+                className="object-cover"
+              />
+            </div>
+          ))}
       </div>
     </article>
   );
