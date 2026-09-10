@@ -20,10 +20,15 @@ export const Header: React.FC<Props> = ({ logo = '', title = '' }) => (
         </Link>
       </div>
       <div className="self-center">
-        <ul className="grid grid-cols-3 gap-2">
+        <ul className="grid grid-cols-4 gap-2">
           <li>
             <Link href="/" className="p-5 block text-center">
               Inicio
+            </Link>
+          </li>
+          <li>
+            <Link href="/adoptados" className="p-5 block text-center">
+              Adoptados
             </Link>
           </li>
           <li>

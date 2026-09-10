@@ -16,6 +16,7 @@ export default async function HomePage() {
     )
     .slice(0, 2);
   const adoptions = (await reader.collections.adoptions.all())
+    .filter(({ entry }) => !entry.adoptedAt)
     .sort((a, b) =>
       compareDesc(a?.entry?.publishedAt ?? '', b?.entry?.publishedAt ?? ''),
     )

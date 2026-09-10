@@ -8,23 +8,20 @@ import { SectionTitle } from '@/src/components/SectionTitle';
 import { reader } from '@/src/helpers/reader';
 
 export const metadata: Metadata = {
-  title: 'Adopciones',
-  description: 'Encuentra a tu nuevo compañero y dale un hogar.',
+  title: 'Adoptados',
+  description: 'Los gatitos que ya han encontrado un hogar responsable.',
 };
 
-export default async function AdoptionsPage() {
+export default async function AdoptedPage() {
   const adoptions = (await reader.collections.adoptions.all())
-    .filter(({ entry }) => !entry.adoptedAt)
+    .filter(({ entry }) => entry.adoptedAt)
     .sort((a, b) =>
-      compareDesc(a?.entry?.publishedAt ?? '', b?.entry?.publishedAt ?? ''),
+      compareDesc(a?.entry?.adoptedAt ?? '', b?.entry?.adoptedAt ?? ''),
     );
 
   return (
     <Section>
-      <SectionTitle
-        title="Adopciones"
-        subtitle="Encuentra a tu nuevo compañero"
-      />
+      <SectionTitle title="Adoptados" subtitle="Ya han encontrado un hogar" />
       <Grid>
         {adoptions.map(({ slug, entry: adoption }) => (
           <AdoptionItem
