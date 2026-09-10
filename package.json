@@ -6,13 +6,17 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "biome check"
+    "lint": "oxlint .",
+    "lint:fix": "oxlint . --fix",
+    "format": "oxfmt .",
+    "format:check": "oxfmt . --check"
   },
   "dependencies": {
     "@icons-pack/react-simple-icons": "^13.13.0",
+    "@keystar/ui": "^0.7.22",
     "@keystatic/core": "^0.5.50",
     "@keystatic/next": "^5.0.4",
-    "@markdoc/markdoc": "^0.5.7",
+    "@markdoc/markdoc": "^0.4.0",
     "@vercel/speed-insights": "^2.0.0",
     "cookies-next": "^6.1.1",
     "date-fns": "^4.1.0",
@@ -26,12 +30,13 @@
     "react-share": "^5.3.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2",
     "@tailwindcss/postcss": "^4",
     "@types/js-yaml": "^4",
     "@types/node": "^25",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "oxfmt": "^0.67.0",
+    "oxlint": "^1.82.0",
     "tailwindcss": "^4",
     "typescript": "^6.0.2"
   }

@@ -2,8 +2,8 @@ name: Mirror to Codeberg
 
 on:
   push:
-    branches: ["**"]
-    tags: ["**"]
+    branches: ['**']
+    tags: ['**']
   workflow_dispatch:
 
 jobs:
