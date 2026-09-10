@@ -303,6 +303,11 @@ export default config({
         ),
         cta: fields.object(
           {
+            heading: fields.text({
+              label: 'Encabezado de la sección',
+              description:
+                'El botón aparecerá tras el primer párrafo de esta sección',
+            }),
             label: fields.text({ label: 'Texto del botón' }),
             url: fields.text({ label: 'Enlace' }),
           },

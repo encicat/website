@@ -18,7 +18,6 @@ import { reader } from '@/src/helpers/reader';
 
 const ADOPTIONS_HEADING = 'Gatos disponibles';
 const PAYMENTS_HEADING = '¿Cómo puedo hacerlo?';
-const CTA_HEADING = '¿Quieres ser casa de acogida?';
 
 const getNodeText = (node: Node): string =>
   typeof node.attributes?.content === 'string'
@@ -107,7 +106,9 @@ export default async function HelpDetailPage({
       ? findHeading(children, PAYMENTS_HEADING)
       : -1;
   const ctaHeading =
-    page.cta?.label && page.cta?.url ? findHeading(children, CTA_HEADING) : -1;
+    page.cta?.heading && page.cta?.label && page.cta?.url
+      ? findHeading(children, page.cta.heading)
+      : -1;
 
   const insertions: { index: number; node: React.ReactNode }[] = [];
 
