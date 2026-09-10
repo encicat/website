@@ -1,4 +1,11 @@
-import { Coins, Heart, Home, Megaphone, Users } from 'lucide-react';
+import {
+  Coins,
+  Heart,
+  HeartHandshake,
+  Home,
+  Megaphone,
+  Users,
+} from 'lucide-react';
 
 export const helpIconMap = {
   coins: Coins,
@@ -6,6 +13,7 @@ export const helpIconMap = {
   heart: Heart,
   users: Users,
   megaphone: Megaphone,
+  'heart-handshake': HeartHandshake,
 };
 
 export const getHelpIcon = (name: string) =>

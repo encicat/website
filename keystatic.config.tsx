@@ -270,6 +270,7 @@ export default config({
             { value: 'heart', label: 'Apadrinamiento' },
             { value: 'users', label: 'Voluntariado' },
             { value: 'megaphone', label: 'Difusión' },
+            { value: 'heart-handshake', label: 'Adopción' },
           ],
         }),
         order: fields.integer({ label: 'Orden', defaultValue: 0 }),
