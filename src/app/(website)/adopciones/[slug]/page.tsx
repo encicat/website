@@ -103,8 +103,8 @@ export default async function AdoptionPage({
 
         {!adoption.adoptedAt && (
           <div className="mt-16 flex flex-wrap justify-center gap-4 px-4 lg:px-0">
-            <Button href="/ayudanos/adopcion">Cómo adoptar</Button>
-            <Button href="/ayudanos/apadrinamiento">Apadrinar</Button>
+            <Button href="/ayudanos/adopcion">Adóptame</Button>
+            <Button href="/ayudanos/apadrinamiento">Apadríname</Button>
           </div>
         )}
         {!adoption.adoptedAt && (
