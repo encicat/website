@@ -56,20 +56,17 @@ export const Footer: React.FC<Props> = ({
         <div>
           <Title>Enlaces</Title>
           <div className="flex flex-col items-center md:items-start">
-            <Link href={'/'} className="link">
-              Inicio
-            </Link>
-            <Link href={'/quienes-somos'} className="link">
-              Quiénes somos
-            </Link>
             <Link href={'/adopciones'} className="link">
               Adopciones
+            </Link>
+            <Link href={'/ayudales'} className="link">
+              Cómo ayudarles
             </Link>
             <Link href={'/adoptados'} className="link">
               Adoptados
             </Link>
-            <Link href={'/ayudales'} className="link">
-              Cómo ayudarles
+            <Link href={'/quienes-somos'} className="link">
+              Quiénes somos
             </Link>
             <Link href={'/contacto'} className="link">
               Contacto
