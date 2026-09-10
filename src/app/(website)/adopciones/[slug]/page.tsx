@@ -103,12 +103,14 @@ export default async function AdoptionPage({
           <DocumentRenderer document={await adoption.content()} />
         </div>
 
-        <div className="mt-16">
-          <div className="text-2xl mb-8 uppercase">
-            Condiciones de adopción:
+        {!adoption.adoptedAt && (
+          <div className="mt-16">
+            <div className="text-2xl mb-8 uppercase">
+              Condiciones de adopción:
+            </div>
+            <DocumentRenderer document={conditions} />
           </div>
-          <DocumentRenderer document={conditions} />
-        </div>
+        )}
         <div className="mt-16">
           <Share shareText="Ayudanos a conseguir la adopción responsable" />
         </div>
