@@ -1,4 +1,9 @@
-import { SiInstagram, SiTiktok } from '@icons-pack/react-simple-icons';
+import {
+  SiInstagram,
+  SiTelegram,
+  SiTiktok,
+  SiWhatsapp,
+} from '@icons-pack/react-simple-icons';
 import { Mail, Phone } from 'lucide-react';
 import type { Metadata } from 'next';
 
@@ -6,7 +11,7 @@ import { Grid } from '@/src/components/Grid/Grid';
 import { Hero } from '@/src/components/Hero';
 import { Section } from '@/src/components/Section';
 import { TextCard } from '@/src/components/TextCard';
-import { toTelHref } from '@/src/helpers/phone';
+import { toTelegramHref, toTelHref, toWhatsAppHref } from '@/src/helpers/phone';
 import { reader } from '@/src/helpers/reader';
 
 export const metadata: Metadata = {
@@ -17,6 +22,7 @@ export const metadata: Metadata = {
 export default async function ContactPage() {
   const settings = await reader.singletons.settings.read();
   const social = await reader.singletons.social.read();
+  const phone = settings?.phone ?? '';
   return (
     <>
       <Hero bgImgSrc="/images/bg.png">
@@ -27,9 +33,31 @@ export default async function ContactPage() {
           <TextCard icon={<Mail />} title={'Escríbenos'}>
             <a href={`mailto:${settings?.email}`}>{settings?.email}</a>
           </TextCard>
-          {settings?.phone && (
+          {phone !== '' && (
             <TextCard icon={<Phone />} title={'Llámanos'}>
-              <a href={toTelHref(settings.phone)}>{settings.phone}</a>
+              <a href={toTelHref(phone)}>{phone}</a>
+            </TextCard>
+          )}
+          {phone !== '' && (
+            <TextCard icon={<SiWhatsapp />} title={'WhatsApp'}>
+              <a
+                href={toWhatsAppHref(phone)}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                WhatsApp
+              </a>
+            </TextCard>
+          )}
+          {phone !== '' && (
+            <TextCard icon={<SiTelegram />} title={'Telegram'}>
+              <a
+                href={toTelegramHref(phone)}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Telegram
+              </a>
             </TextCard>
           )}
           <TextCard icon={<SiInstagram />} title={'Instagram'}>
