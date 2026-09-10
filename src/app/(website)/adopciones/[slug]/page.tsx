@@ -120,9 +120,9 @@ export default async function AdoptionPage({
           </div>
         )}
       </div>
-      <div className="grid grid-cols-4">
+      <div className="grid grid-cols-2 md:grid-cols-4">
         {adoption.image && adoption.image !== '' && (
-          <div className="relative h-100">
+          <div className="relative aspect-square">
             <Image
               src={String(adoption.image)}
               alt={`Foto principal de la adopción de ${adoption.name}`}
@@ -132,7 +132,7 @@ export default async function AdoptionPage({
           </div>
         )}
         {adoption.images.map((image) => (
-          <div key={image} className="relative h-100">
+          <div key={image} className="relative aspect-square">
             <Image
               src={String(image)}
               alt={`Foto de ${adoption.name}`}
