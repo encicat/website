@@ -301,6 +301,13 @@ export default config({
             itemLabel: (props) => props.fields.name.value,
           },
         ),
+        cta: fields.object(
+          {
+            label: fields.text({ label: 'Texto del botón' }),
+            url: fields.text({ label: 'Enlace' }),
+          },
+          { label: 'Llamada a la acción' },
+        ),
         content: fields.markdoc({ label: 'Contenido' }),
       },
     }),

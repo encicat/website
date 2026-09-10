@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { Fragment } from 'react';
 
 import { AdoptionItem } from '@/src/components/AdoptionItem';
+import { Button } from '@/src/components/Button';
 import { DocumentRenderer } from '@/src/components/DocumentRenderer';
 import { render } from '@/src/components/DocumentRenderer/render';
 import { DonationItem } from '@/src/components/DonationItem';
@@ -209,6 +210,11 @@ export default async function HelpDetailPage({
                 </DonationItem>
               ))}
             </Grid>
+          </div>
+        )}
+        {page.cta?.label && page.cta?.url && (
+          <div className="mt-12 flex justify-center px-6 lg:px-0">
+            <Button href={page.cta.url}>{page.cta.label}</Button>
           </div>
         )}
       </Section>
