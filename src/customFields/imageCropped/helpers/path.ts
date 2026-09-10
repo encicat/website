@@ -8,7 +8,7 @@ export function getSrcPrefix(
 ) {
   return typeof publicPath === 'string'
     ? `${publicPath.replace(/\/*$/, '')}/${
-        slug === undefined ? '' : slug + '/'
+        slug === undefined ? '' : `${slug}/`
       }`
     : '';
 }

@@ -5,7 +5,7 @@ import { FieldDescription, FieldLabel, FieldMessage } from '@keystar/ui/field';
 import { Box, Flex } from '@keystar/ui/layout';
 import { tokenSchema } from '@keystar/ui/style';
 import { TextField } from '@keystar/ui/text-field';
-import { FC, useId, useReducer, useState } from 'react';
+import { type FC, useId, useReducer, useState } from 'react';
 import 'react-image-crop/dist/ReactCrop.css';
 
 import { CropDialog } from '../CropDialog';

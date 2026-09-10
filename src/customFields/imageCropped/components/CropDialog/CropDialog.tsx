@@ -1,7 +1,7 @@
 import { Button, ButtonGroup } from '@keystar/ui/button';
 import { Dialog, DialogContainer } from '@keystar/ui/dialog';
 import { Heading } from '@keystar/ui/typography';
-import { FC, useRef, useState } from 'react';
+import { type FC, useRef, useState } from 'react';
 import ReactCrop, { type Crop } from 'react-image-crop';
 
 import { getCroppedImg } from './helpers/crop';
@@ -29,7 +29,12 @@ export const CropDialog: FC<Props> = ({ value, onDismiss, onChange }) => {
                 setCrop(c);
               }}
             >
-              <img ref={imageRef} src={value} style={{ width: '100%' }} />
+              <img
+                ref={imageRef}
+                src={value}
+                alt=""
+                style={{ width: '100%' }}
+              />
             </ReactCrop>
           </div>
         </div>

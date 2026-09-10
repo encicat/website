@@ -74,7 +74,7 @@ export function imageCropped<IsRequired extends boolean | undefined>({
         return { value: undefined, asset: undefined };
       }
       const filename = args.suggestedFilenamePrefix
-        ? args.suggestedFilenamePrefix + '.' + value.extension
+        ? `${args.suggestedFilenamePrefix}.${value.extension}`
         : value.filename;
       return {
         value: `${getSrcPrefix(publicPath, args.slug)}${filename}`,
