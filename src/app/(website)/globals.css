@@ -43,12 +43,16 @@ a.link:hover {
 .markdoc h2 {
   font-size: 1.5rem;
   line-height: 1.75rem;
+  margin-top: 2.5rem;
   margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--color-green-700);
 }
 .markdoc h3 {
   font-size: 1.25rem;
   line-height: 1.5rem;
   font-weight: 700;
+  margin-top: 1.5rem;
   margin-bottom: 0.75rem;
 }
 
@@ -57,23 +61,34 @@ a.link:hover {
   line-height: 1.7;
 }
 
-.markdoc ul {
+.markdoc ul,
+.markdoc ol {
   margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+.markdoc ul {
   list-style: disc;
 }
 .markdoc ol {
-  margin-bottom: 1rem;
-  list-style: auto;
+  list-style: decimal;
 }
-.markdoc ul li,
-.markdoc ol li {
-  margin-left: 1rem;
+.markdoc li {
+  margin-bottom: 0.5rem;
   line-height: 1.7;
+}
+.markdoc li::marker {
+  color: var(--color-green-700);
+}
+.markdoc li > ul,
+.markdoc li > ol {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
 }
 
 .markdoc a {
-  transition: all;
+  font-weight: 600;
   color: var(--color-green-700);
+  transition: color 0.3s;
 }
 .markdoc a:hover {
   color: var(--color-green-800);
