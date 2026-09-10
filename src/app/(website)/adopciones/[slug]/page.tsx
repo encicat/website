@@ -120,7 +120,7 @@ export default async function AdoptionPage({
           </div>
         )}
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
         {adoption.image && adoption.image !== '' && (
           <div className="relative aspect-square">
             <Image
