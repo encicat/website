@@ -5,9 +5,6 @@ platforms:
   - name: Teaming
     url: https://www.teaming.net/encicat-grupo
     description: También puedes unirte a nuestra campaña de Teaming y donar 1 Euro al mes
-  - name: Paypal
-    url: http://paypal.me/EnciCat
-    description: Recuerda indicarnos la campaña/animal donde quieres donar
   - name: Lista de deseos de Amazon
     url: https://www.amazon.es/hz/wishlist/ls/3P6UX0396CW7Y?ref_=wl_share
     description: Siempre puedes seleccionar un artículo de nuestra lista de Amazon
