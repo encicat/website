@@ -248,6 +248,38 @@ export default config({
         ),
       },
     }),
+    help: collection({
+      label: 'Formas de ayudar',
+      slugField: 'title',
+      path: 'content/help/*/',
+      format: { contentField: 'content' },
+      columns: ['title', 'order'],
+      schema: {
+        title: fields.slug({ name: { label: 'Título' } }),
+        summary: fields.text({
+          label: 'Resumen',
+          multiline: true,
+          description: 'Texto corto que aparece en el índice de ayuda',
+        }),
+        icon: fields.select({
+          label: 'Icono',
+          defaultValue: 'heart',
+          options: [
+            { value: 'coins', label: 'Donaciones' },
+            { value: 'home', label: 'Casa de acogida' },
+            { value: 'heart', label: 'Apadrinamiento' },
+            { value: 'users', label: 'Voluntariado' },
+            { value: 'megaphone', label: 'Difusión' },
+          ],
+        }),
+        order: fields.integer({ label: 'Orden', defaultValue: 0 }),
+        donation_methods: fields.checkbox({
+          label: 'Mostrar métodos de donación',
+          defaultValue: false,
+        }),
+        content: fields.markdoc({ label: 'Contenido' }),
+      },
+    }),
   },
 
   ui: {
@@ -255,6 +287,7 @@ export default config({
       '---',
       'adoptions',
       'posts',
+      'help',
       '---',
       'home_page',
       'help_page',
