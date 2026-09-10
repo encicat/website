@@ -7,9 +7,11 @@ import { DonationItem } from '@/src/components/DonationItem';
 import { Section } from '@/src/components/Section';
 import { SectionTitle } from '@/src/components/SectionTitle';
 import { Slider } from '@/src/components/Slider';
+import { getCachedSettings } from '@/src/helpers/cached';
 import { reader } from '@/src/helpers/reader';
 
 export default async function HomePage() {
+  const settings = await getCachedSettings();
   const posts = (await reader.collections.posts.all())
     .sort((a, b) =>
       compareDesc(a?.entry?.publishedAt ?? '', b?.entry?.publishedAt ?? ''),
@@ -32,7 +34,7 @@ export default async function HomePage() {
 
   return (
     <main>
-      <Slider />
+      <Slider tagline={settings.slogan} />
       {home_page?.adoption_show === 'yes' && (
         <Section>
           <SectionTitle
