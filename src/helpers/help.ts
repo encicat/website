@@ -1,9 +1,13 @@
 import {
+  AtSign,
   Coins,
   Heart,
   HeartHandshake,
   Home,
   Megaphone,
+  MessageCircle,
+  Share2,
+  Store,
   Users,
 } from 'lucide-react';
 
@@ -14,6 +18,10 @@ export const helpIconMap = {
   users: Users,
   megaphone: Megaphone,
   'heart-handshake': HeartHandshake,
+  share: Share2,
+  message: MessageCircle,
+  tag: AtSign,
+  store: Store,
 };
 
 export const getHelpIcon = (name: string) =>

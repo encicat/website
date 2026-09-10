@@ -11,6 +11,8 @@ import { DonationItem } from '@/src/components/DonationItem';
 import { Grid } from '@/src/components/Grid/Grid';
 import { Hero } from '@/src/components/Hero';
 import { Section } from '@/src/components/Section';
+import { TextCard } from '@/src/components/TextCard';
+import { getHelpIcon } from '@/src/helpers/help';
 import { reader } from '@/src/helpers/reader';
 
 const ADOPTIONS_HEADING = 'Gatos disponibles';
@@ -177,6 +179,20 @@ export default async function HelpDetailPage({
         ) : (
           <div className="px-6 lg:px-0">
             <DocumentRenderer document={content} />
+          </div>
+        )}
+        {page.cards.length > 0 && (
+          <div className="my-8 px-6 lg:px-0">
+            <Grid>
+              {page.cards.map((card) => {
+                const Icon = getHelpIcon(card.icon);
+                return (
+                  <TextCard key={card.title} icon={<Icon />} title={card.title}>
+                    {card.description}
+                  </TextCard>
+                );
+              })}
+            </Grid>
           </div>
         )}
         {donation_methods && (

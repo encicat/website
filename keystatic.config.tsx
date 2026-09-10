@@ -267,6 +267,29 @@ export default config({
           label: 'Mostrar listado de adopciones',
           defaultValue: false,
         }),
+        cards: fields.array(
+          fields.object({
+            title: fields.text({ label: 'Título' }),
+            description: fields.text({ label: 'Descripción', multiline: true }),
+            icon: fields.select({
+              label: 'Icono',
+              defaultValue: 'heart',
+              options: [
+                { value: 'share', label: 'Compartir' },
+                { value: 'message', label: 'Mensaje' },
+                { value: 'tag', label: 'Etiqueta' },
+                { value: 'store', label: 'Tienda' },
+                { value: 'megaphone', label: 'Megáfono' },
+                { value: 'heart', label: 'Corazón' },
+                { value: 'users', label: 'Personas' },
+              ],
+            }),
+          }),
+          {
+            label: 'Tarjetas',
+            itemLabel: (props) => props.fields.title.value,
+          },
+        ),
         payment_options: fields.array(
           fields.object({
             name: fields.text({ label: 'Nombre' }),
