@@ -45,10 +45,10 @@ export const Header: React.FC<Props> = ({ logo = '', title = '' }) => {
           {open ? <X /> : <Menu />}
         </button>
         <nav className="hidden md:block self-center">
-          <ul className="grid grid-cols-5 gap-2">
+          <ul className="grid grid-cols-5 gap-1">
             {links.map(({ href, label }) => (
               <li key={href}>
-                <Link href={href} className="p-5 block text-center">
+                <Link href={href} className="px-3 py-5 block text-center">
                   {label}
                 </Link>
               </li>
