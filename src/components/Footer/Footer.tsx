@@ -59,6 +59,9 @@ export const Footer: React.FC<Props> = ({
             <Link href={'/'} className="link">
               Inicio
             </Link>
+            <Link href={'/quienes-somos'} className="link">
+              Quiénes somos
+            </Link>
             <Link href={'/adopciones'} className="link">
               Adopciones
             </Link>

@@ -11,7 +11,7 @@ interface Props {
 }
 
 const links = [
-  { href: '/', label: 'Inicio' },
+  { href: '/quienes-somos', label: 'Quiénes somos' },
   { href: '/adopciones', label: 'Adopciones' },
   { href: '/ayudanos', label: 'Ayúdanos' },
   { href: '/adoptados', label: 'Adoptados' },

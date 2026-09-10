@@ -102,6 +102,14 @@ export default config({
         content: fields.markdoc({ label: 'Contenido' }),
       },
     }),
+    about_page: singleton({
+      path: 'content/pages/about',
+      label: 'Quiénes somos',
+      schema: {
+        title: fields.text({ label: 'Título de la página' }),
+        content: fields.markdoc({ label: 'Contenido' }),
+      },
+    }),
     terms_page: singleton({
       path: 'content/pages/terms',
       label: 'Términos y condiciones',
@@ -268,6 +276,7 @@ export default config({
       '---',
       'home_page',
       'help_page',
+      'about_page',
       'terms_page',
       'privacy_page',
       '---',
