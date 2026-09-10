@@ -82,7 +82,7 @@ export default async function HomePage() {
         </Section>
       )}
       <Section>
-        <SectionTitle title={'Noticias'} subtitle="No te pierdas nada" />
+        <SectionTitle title={'Noticias'} subtitle="Lo último de EnciCat" />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 px-4 lg:px-0">
           {posts.map(async ({ slug, entry: post }) => (
             <Card
@@ -102,7 +102,7 @@ export default async function HomePage() {
         <Section>
           <SectionTitle
             title="Adoptados"
-            subtitle="Ya han encontrado un hogar"
+            subtitle="Finales felices de EnciCat"
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 lg:px-0">
             {adopted.map(({ slug, entry: adoption }) => (
