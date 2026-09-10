@@ -57,12 +57,12 @@ export const Header: React.FC<Props> = ({ logo = '', title = '' }) => {
         </nav>
       </div>
       <nav id="main-nav" className={`md:hidden ${open ? 'block' : 'hidden'}`}>
-        <ul className="flex flex-col pb-4">
+        <ul className="flex flex-col pt-4 pb-4">
           {links.map(({ href, label }) => (
             <li key={href}>
               <Link
                 href={href}
-                className="block p-3 text-center"
+                className="block p-4 text-center text-lg"
                 onClick={() => setOpen(false)}
               >
                 {label}
