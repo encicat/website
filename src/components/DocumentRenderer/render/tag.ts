@@ -20,6 +20,8 @@ const list = (node: Node): string =>
   `<${node.attributes.ordered ? 'ol' : 'ul'}${renderAttrs(removeAttrs(node.attributes, ['ordered', 'marker']))}>${node.children.map(renderTag).join('')}</${node.attributes.ordered ? 'ol' : 'ul'}>`;
 const item = (node: Node): string =>
   `<li${renderAttrs(node.attributes)}>${node.children.map(renderTag).join('')}</li>`;
+const blockquote = (node: Node): string =>
+  `<blockquote${renderAttrs(node.attributes)}>${node.children.map(renderTag).join('')}</blockquote>`;
 const softbreak = (_node: Node): string => ' ';
 const hardbreak = (_node: Node): string => '<br />';
 
@@ -37,6 +39,7 @@ const tagFnMap = {
   em,
   list,
   item,
+  blockquote,
   softbreak,
   hardbreak,
 };

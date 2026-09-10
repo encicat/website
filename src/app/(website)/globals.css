@@ -95,6 +95,17 @@ a.link:hover {
   color: var(--color-green-800);
 }
 
+.markdoc blockquote {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid #f59e0b;
+  background: #fffbeb;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+.markdoc blockquote p {
+  margin-bottom: 0;
+}
+
 @media (min-width: 768px) {
   .markdoc h1 {
     font-size: 3rem;
