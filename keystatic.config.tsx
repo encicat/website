@@ -205,6 +205,11 @@ export default config({
           label: 'Fecha de adopción',
           description: 'Cuando esté adoptado',
         }),
+        adoption_text: fields.text({
+          label: 'Historia de la adopción',
+          multiline: true,
+          description: 'Solo se muestra en la ficha de los gatos adoptados',
+        }),
         publishedAt: fields.date({ label: 'Fecha de publicación' }),
         content: fields.markdoc({ label: 'Contenido' }),
         images: fields.array(

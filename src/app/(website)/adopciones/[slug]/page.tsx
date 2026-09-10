@@ -101,6 +101,13 @@ export default async function AdoptionPage({
           <DocumentRenderer document={await adoption.content()} />
         </div>
 
+        {adoption.adoptedAt && adoption.adoption_text && (
+          <div className="mt-16 px-4 lg:px-0">
+            <div className="text-2xl mb-8 uppercase">Su historia</div>
+            <p>{adoption.adoption_text}</p>
+          </div>
+        )}
+
         {!adoption.adoptedAt && (
           <div className="mt-16 flex flex-wrap justify-center gap-4 px-4 lg:px-0">
             <Button href="/ayudanos/adopcion">Adóptame</Button>
