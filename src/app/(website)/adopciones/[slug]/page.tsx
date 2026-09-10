@@ -1,10 +1,10 @@
-import type { Node } from '@markdoc/markdoc';
 import { Bug, Cat, CheckCheck, Cpu, Syringe } from 'lucide-react';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
 import { Age } from '@/src/components/Age';
+import { Button } from '@/src/components/Button';
 import { Chip } from '@/src/components/Chip';
 import { DocumentRenderer } from '@/src/components/DocumentRenderer';
 import { Gender } from '@/src/components/Gender';
@@ -43,8 +43,6 @@ export default async function AdoptionPage({
 }) {
   const { slug } = await params;
   const adoption = await reader.collections.adoptions.read(slug);
-  const adoption_page = await reader.singletons.adoption_page.read();
-  const conditions = (await adoption_page?.content()) as { node: Node };
 
   if (!adoption) {
     notFound();
@@ -104,11 +102,9 @@ export default async function AdoptionPage({
         </div>
 
         {!adoption.adoptedAt && (
-          <div className="mt-16">
-            <div className="text-2xl mb-8 uppercase">
-              Condiciones de adopción:
-            </div>
-            <DocumentRenderer document={conditions} />
+          <div className="mt-16 flex flex-wrap justify-center gap-4 px-4 lg:px-0">
+            <Button href="/ayudanos/adopcion">Cómo adoptar</Button>
+            <Button href="/ayudanos/apadrinamiento">Apadrinar</Button>
           </div>
         )}
         {!adoption.adoptedAt && (

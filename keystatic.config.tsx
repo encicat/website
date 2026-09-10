@@ -102,16 +102,6 @@ export default config({
         content: fields.markdoc({ label: 'Contenido' }),
       },
     }),
-    adoption_page: singleton({
-      path: 'content/pages/adoption',
-      label: 'Página de adopción',
-      schema: {
-        content: fields.markdoc({
-          label: 'Condiciones de adopción',
-          description: 'Este texto aparecerá en todas las páginas de adopción',
-        }),
-      },
-    }),
     terms_page: singleton({
       path: 'content/pages/terms',
       label: 'Términos y condiciones',
@@ -292,7 +282,6 @@ export default config({
       '---',
       'home_page',
       'help_page',
-      'adoption_page',
       'terms_page',
       'privacy_page',
       '---',
