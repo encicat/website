@@ -39,7 +39,7 @@ const MarkdocBlock: React.FC<{ nodes: Node[] }> = ({ nodes }) => {
     return null;
   }
   return (
-    <div className="max-w-3xl px-6 lg:px-0">
+    <div className="px-6 lg:px-0">
       <div className="markdoc">
         <div dangerouslySetInnerHTML={{ __html: nodes.map(render).join('') }} />
       </div>
@@ -175,7 +175,7 @@ export default async function HelpDetailPage({
         {insertions.length > 0 ? (
           blocks
         ) : (
-          <div className="max-w-3xl px-6 lg:px-0">
+          <div className="px-6 lg:px-0">
             <DocumentRenderer document={content} />
           </div>
         )}
