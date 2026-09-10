@@ -31,6 +31,6 @@ export const Section: React.FC<Props> = ({
         }}
       />
     )}
-    <div className="max-w-5xl mx-auto pt-10 pb-20">{children}</div>
+    <div className="max-w-5xl mx-auto pt-12 pb-16">{children}</div>
   </div>
 );

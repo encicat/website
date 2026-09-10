@@ -54,7 +54,7 @@ export default async function AdoptionPage({
         <h1 className="text-4xl uppercase">{adoption?.name}</h1>
       </Hero>
 
-      <div className="max-w-5xl mx-auto pt-10 pb-20 px-6 lg:px-0">
+      <div className="max-w-5xl mx-auto pt-12 pb-16 px-6 lg:px-0">
         <div className="grid grid-col-1 md:grid-cols-2 gap-8 mb-12">
           {adoption.image && adoption.image !== '' && (
             <div className="relative h-100 border-gray-100 border">

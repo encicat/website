@@ -11,7 +11,7 @@ export const SectionTitle: React.FC<Props> = ({
   subtitle,
   as: Heading = 'h2',
 }) => (
-  <div className="mb-10 px-6 lg:px-0">
+  <div className="mb-8 px-6 lg:px-0">
     {subtitle && (
       <div className="text-sm text-gray-500 font-bold text-center uppercase">
         {subtitle}
