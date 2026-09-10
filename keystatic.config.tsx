@@ -267,6 +267,17 @@ export default config({
           label: 'Mostrar listado de adopciones',
           defaultValue: false,
         }),
+        payment_options: fields.array(
+          fields.object({
+            name: fields.text({ label: 'Nombre' }),
+            code: fields.text({ label: 'Código o IBAN' }),
+            description: fields.text({ label: 'Descripción', multiline: true }),
+          }),
+          {
+            label: 'Opciones de pago',
+            itemLabel: (props) => props.fields.name.value,
+          },
+        ),
         content: fields.markdoc({ label: 'Contenido' }),
       },
     }),

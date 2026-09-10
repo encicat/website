@@ -2,6 +2,7 @@ import type { Node } from '@markdoc/markdoc';
 import { compareDesc } from 'date-fns';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { Fragment } from 'react';
 
 import { AdoptionItem } from '@/src/components/AdoptionItem';
 import { DocumentRenderer } from '@/src/components/DocumentRenderer';
@@ -13,25 +14,37 @@ import { Section } from '@/src/components/Section';
 import { reader } from '@/src/helpers/reader';
 
 const ADOPTIONS_HEADING = 'Gatos disponibles';
+const PAYMENTS_HEADING = '¿Cómo puedo hacerlo?';
 
 const getNodeText = (node: Node): string =>
   typeof node.attributes?.content === 'string'
     ? node.attributes.content
     : node.children.map(getNodeText).join('');
 
-const splitAtAdoptions = (node: Node) => {
-  const index = node.children.findIndex(
-    (child) =>
-      child.type === 'heading' &&
-      getNodeText(child).includes(ADOPTIONS_HEADING),
+const findHeading = (children: Node[], marker: string): number =>
+  children.findIndex(
+    (child) => child.type === 'heading' && getNodeText(child).includes(marker),
   );
-  if (index === -1) {
-    return { before: node.children, after: [] };
+
+const sectionEnd = (children: Node[], headingIndex: number): number => {
+  let end = headingIndex + 1;
+  if (end < children.length && children[end].type === 'paragraph') {
+    end += 1;
   }
-  return {
-    before: node.children.slice(0, index + 1),
-    after: node.children.slice(index + 1),
-  };
+  return end;
+};
+
+const MarkdocBlock: React.FC<{ nodes: Node[] }> = ({ nodes }) => {
+  if (nodes.length === 0) {
+    return null;
+  }
+  return (
+    <div className="max-w-3xl px-6 lg:px-0">
+      <div className="markdoc">
+        <div dangerouslySetInnerHTML={{ __html: nodes.map(render).join('') }} />
+      </div>
+    </div>
+  );
 };
 
 export async function generateStaticParams() {
@@ -81,9 +94,77 @@ export default async function HelpDetailPage({
         )
     : [];
 
-  const { before, after } = page.adoptions_list
-    ? splitAtAdoptions(content.node)
-    : { before: [], after: [] };
+  const children = content.node.children;
+  const adoptionsHeading = page.adoptions_list
+    ? findHeading(children, ADOPTIONS_HEADING)
+    : -1;
+  const paymentsHeading =
+    page.payment_options.length > 0
+      ? findHeading(children, PAYMENTS_HEADING)
+      : -1;
+
+  const insertions: { index: number; node: React.ReactNode }[] = [];
+
+  if (adoptionsHeading !== -1 && adoptions.length > 0) {
+    insertions.push({
+      index: sectionEnd(children, adoptionsHeading),
+      node: (
+        <div className="mt-8 px-6 lg:px-0">
+          <Grid>
+            {adoptions.map(({ slug, entry: adoption }) => (
+              <AdoptionItem
+                key={slug}
+                name={adoption.name}
+                birthdate={String(adoption.birthdate)}
+                gender={adoption.gender}
+                img={adoption?.image ?? ''}
+                slug={slug}
+              />
+            ))}
+          </Grid>
+        </div>
+      ),
+    });
+  }
+
+  if (paymentsHeading !== -1) {
+    insertions.push({
+      index: sectionEnd(children, paymentsHeading),
+      node: (
+        <div className="mt-8 px-6 lg:px-0">
+          <Grid>
+            {page.payment_options.map((option) => (
+              <DonationItem
+                key={option.name}
+                name={option.name}
+                code={option.code}
+              >
+                {option.description}
+              </DonationItem>
+            ))}
+          </Grid>
+        </div>
+      ),
+    });
+  }
+
+  insertions.sort((a, b) => a.index - b.index);
+
+  const blocks: React.ReactNode[] = [];
+  let cursor = 0;
+  insertions.forEach((insertion, index) => {
+    blocks.push(
+      <MarkdocBlock
+        key={`markdoc-${index}`}
+        nodes={children.slice(cursor, insertion.index)}
+      />,
+    );
+    blocks.push(<Fragment key={`block-${index}`}>{insertion.node}</Fragment>);
+    cursor = insertion.index;
+  });
+  blocks.push(
+    <MarkdocBlock key="markdoc-end" nodes={children.slice(cursor)} />,
+  );
 
   return (
     <>
@@ -91,45 +172,8 @@ export default async function HelpDetailPage({
         <h1 className="text-4xl uppercase">{page.title}</h1>
       </Hero>
       <Section>
-        {page.adoptions_list ? (
-          <>
-            <div className="max-w-3xl px-6 lg:px-0">
-              <div className="markdoc">
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: before.map(render).join(''),
-                  }}
-                />
-              </div>
-            </div>
-            {adoptions.length > 0 && (
-              <div className="mt-8 px-6 lg:px-0">
-                <Grid>
-                  {adoptions.map(({ slug, entry: adoption }) => (
-                    <AdoptionItem
-                      key={slug}
-                      name={adoption.name}
-                      birthdate={String(adoption.birthdate)}
-                      gender={adoption.gender}
-                      img={adoption?.image ?? ''}
-                      slug={slug}
-                    />
-                  ))}
-                </Grid>
-              </div>
-            )}
-            {after.length > 0 && (
-              <div className="max-w-3xl px-6 lg:px-0">
-                <div className="markdoc mt-8">
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: after.map(render).join(''),
-                    }}
-                  />
-                </div>
-              </div>
-            )}
-          </>
+        {insertions.length > 0 ? (
+          blocks
         ) : (
           <div className="max-w-3xl px-6 lg:px-0">
             <DocumentRenderer document={content} />
