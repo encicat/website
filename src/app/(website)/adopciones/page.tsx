@@ -15,7 +15,7 @@ export default async function AdoptionsPage() {
     <Section>
       <SectionTitle
         title="Adopciones"
-        subtitle="Encuentra a tu nuevo companero"
+        subtitle="Encuentra a tu nuevo compañero"
       />
       <Grid>
         {adoptions.map(({ slug, entry: adoption }) => (
