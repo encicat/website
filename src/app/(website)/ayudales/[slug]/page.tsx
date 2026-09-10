@@ -109,7 +109,7 @@ export default async function HelpDetailPage({
     insertions.push({
       index: sectionEnd(children, adoptionsHeading),
       node: (
-        <div className="mt-8 px-6 lg:px-0">
+        <div className="my-8 px-6 lg:px-0">
           <Grid>
             {adoptions.map(({ slug, entry: adoption }) => (
               <AdoptionItem
@@ -131,7 +131,7 @@ export default async function HelpDetailPage({
     insertions.push({
       index: sectionEnd(children, paymentsHeading),
       node: (
-        <div className="mt-8 px-6 lg:px-0">
+        <div className="my-8 px-6 lg:px-0">
           <Grid>
             {page.payment_options.map((option) => (
               <DonationItem
