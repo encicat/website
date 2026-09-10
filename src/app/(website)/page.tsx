@@ -2,18 +2,12 @@ import { compareDesc } from 'date-fns';
 
 import { AdoptionItem } from '@/src/components/AdoptionItem';
 import { Button } from '@/src/components/Button';
-import { Card } from '@/src/components/Card';
 import { DonationItem } from '@/src/components/DonationItem';
 import { Section } from '@/src/components/Section';
 import { SectionTitle } from '@/src/components/SectionTitle';
 import { reader } from '@/src/helpers/reader';
 
 export default async function HomePage() {
-  const posts = (await reader.collections.posts.all())
-    .sort((a, b) =>
-      compareDesc(a?.entry?.publishedAt ?? '', b?.entry?.publishedAt ?? ''),
-    )
-    .slice(0, 2);
   const adoptions = (await reader.collections.adoptions.all())
     .filter(({ entry }) => !entry.adoptedAt)
     .sort((a, b) =>
@@ -79,23 +73,6 @@ export default async function HomePage() {
           </div>
         </Section>
       )}
-      <Section>
-        <SectionTitle title={'Noticias'} subtitle="Lo último de EnciCat" />
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 px-4 lg:px-0">
-          {posts.map(async ({ slug, entry: post }) => (
-            <Card
-              key={post.title}
-              title={post.title}
-              imgSrc={post?.image ?? ''}
-              date={String(post.publishedAt)}
-              url={`/noticias/${slug}`}
-            />
-          ))}
-        </div>
-        <div className="flex justify-center mt-16">
-          <Button href="/noticias">Ver todas las noticias</Button>
-        </div>
-      </Section>
       {adopted.length > 0 && (
         <Section>
           <SectionTitle

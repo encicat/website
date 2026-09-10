@@ -120,24 +120,6 @@ export default config({
     }),
   },
   collections: {
-    posts: collection({
-      label: 'Entradas',
-      slugField: 'title',
-      path: 'content/posts/*/',
-      entryLayout: 'content',
-      format: { contentField: 'content' },
-      columns: ['title', 'publishedAt'],
-      schema: {
-        title: fields.slug({ name: { label: 'Título' } }),
-        image: fields.image({
-          label: 'Imágen destacada',
-          directory: 'public/images/posts',
-          publicPath: '/images/posts/',
-        }),
-        publishedAt: fields.date({ label: 'Fecha de publicación' }),
-        content: fields.markdoc({ label: 'Contenido' }),
-      },
-    }),
     adoptions: collection({
       label: 'Adopciones',
       slugField: 'name',
@@ -277,7 +259,6 @@ export default config({
     navigation: [
       '---',
       'adoptions',
-      'posts',
       'help',
       '---',
       'home_page',
