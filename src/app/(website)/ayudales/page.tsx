@@ -27,7 +27,7 @@ export default async function HelpPage() {
       </Hero>
       <Section>
         {content && (
-          <div className="mb-16 px-4 lg:px-0">
+          <div className="mb-16 px-6 lg:px-0">
             <DocumentRenderer document={content} />
           </div>
         )}

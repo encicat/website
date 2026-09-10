@@ -54,7 +54,7 @@ export default async function AdoptionPage({
         <h2 className="text-4xl uppercase">{adoption?.name}</h2>
       </Hero>
 
-      <div className="max-w-5xl mx-auto py-20 px-4 lg:px-0">
+      <div className="max-w-5xl mx-auto pt-10 pb-20 px-6 lg:px-0">
         <div className="grid grid-col-1 md:grid-cols-2 gap-8 mb-12">
           {adoption.image && adoption.image !== '' && (
             <div className="relative h-100 border-gray-100 border">
@@ -102,14 +102,14 @@ export default async function AdoptionPage({
         </div>
 
         {adoption.adoptedAt && adoption.adoption_text && (
-          <div className="mt-16 px-4 lg:px-0">
+          <div className="mt-16 px-6 lg:px-0">
             <div className="text-2xl mb-8 uppercase">Su historia</div>
             <p>{adoption.adoption_text}</p>
           </div>
         )}
 
         {!adoption.adoptedAt && (
-          <div className="mt-16 flex flex-wrap justify-center gap-4 px-4 lg:px-0">
+          <div className="mt-16 flex flex-wrap justify-center gap-4 px-6 lg:px-0">
             <Button href="/ayudales/adopcion">Adóptame</Button>
             <Button href="/ayudales/apadrinamiento">Apadríname</Button>
           </div>

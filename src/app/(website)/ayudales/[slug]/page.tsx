@@ -51,7 +51,7 @@ export default async function HelpDetailPage({
         <h2 className="text-4xl uppercase">{page.title}</h2>
       </Hero>
       <Section>
-        <div className="px-4 lg:px-0">
+        <div className="px-6 lg:px-0">
           <DocumentRenderer document={await page.content()} />
         </div>
         {donation_methods && (

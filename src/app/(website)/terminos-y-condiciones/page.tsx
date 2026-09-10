@@ -21,7 +21,7 @@ export default async function TermsPage() {
         <h2 className="text-4xl uppercase">{terms_page?.title}</h2>
       </Hero>
       <Section>
-        <div className="mt-0 mb-8 px-4 lg:px-0">
+        <div className="mt-0 mb-8 px-6 lg:px-0">
           {content && <DocumentRenderer document={content} />}
         </div>
       </Section>

@@ -6,7 +6,7 @@ interface Props {
 }
 
 export const SectionTitle: React.FC<Props> = ({ title, subtitle }) => (
-  <div className="mb-10 px-4 lg:px-0">
+  <div className="mb-10 px-6 lg:px-0">
     {subtitle && (
       <div className="text-md text-gray-400 font-bold text-center uppercase">
         {subtitle}

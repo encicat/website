@@ -31,7 +31,7 @@ export default async function HomePage() {
             title={home_page?.adoption_title}
             subtitle={home_page?.adoption_subtitle}
           />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 lg:px-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6 lg:px-0">
             {adoptions.map(({ slug, entry: adoption }) => (
               <AdoptionItem
                 key={slug}
@@ -54,7 +54,7 @@ export default async function HomePage() {
             title={home_page?.donation_methods_title}
             subtitle={home_page?.donation_methods_subtitle}
           />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 lg:px-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6 lg:px-0">
             {donation_methods?.platforms.slice(0, 3).map(async (platform) => (
               <DonationItem
                 key={platform.name}
@@ -66,7 +66,7 @@ export default async function HomePage() {
               </DonationItem>
             ))}
           </div>
-          <div className="flex justify-center mt-16 px-4 lg:px-0">
+          <div className="flex justify-center mt-16 px-6 lg:px-0">
             <Button href="/ayudales" className="text-center">
               Descubre todas las formas en las que puedes ayudarles
             </Button>
@@ -79,7 +79,7 @@ export default async function HomePage() {
             title="Adoptados"
             subtitle="Finales felices de EnciCat"
           />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 lg:px-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6 lg:px-0">
             {adopted.map(({ slug, entry: adoption }) => (
               <AdoptionItem
                 key={slug}
