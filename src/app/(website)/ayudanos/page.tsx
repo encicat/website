@@ -1,9 +1,16 @@
+import type { Metadata } from 'next';
+
 import { DocumentRenderer } from '@/src/components/DocumentRenderer';
 import { DonationItem } from '@/src/components/DonationItem';
 import { Grid } from '@/src/components/Grid/Grid';
 import { Hero } from '@/src/components/Hero';
 import { Section } from '@/src/components/Section';
 import { reader } from '@/src/helpers/reader';
+
+export const metadata: Metadata = {
+  title: 'Ayúdanos',
+  description: 'Descubre todas las formas en las que puedes ayudarnos.',
+};
 
 export default async function HelpPage() {
   const donation_methods = await reader.singletons.donation_methods.read();

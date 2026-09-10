@@ -1,11 +1,17 @@
 import { SiInstagram, SiTiktok } from '@icons-pack/react-simple-icons';
 import { Mail } from 'lucide-react';
+import type { Metadata } from 'next';
 
 import { Grid } from '@/src/components/Grid/Grid';
 import { Hero } from '@/src/components/Hero';
 import { Section } from '@/src/components/Section';
 import { TextCard } from '@/src/components/TextCard';
 import { reader } from '@/src/helpers/reader';
+
+export const metadata: Metadata = {
+  title: 'Contacto',
+  description: 'Ponte en contacto con EnciCat.',
+};
 
 export default async function ContactPage() {
   const settings = await reader.singletons.settings.read();

@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import { DocumentRenderer } from '@/src/components/DocumentRenderer';
@@ -9,6 +10,23 @@ export async function generateStaticParams() {
   return posts.map((post) => ({
     slug: post.slug,
   }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await reader.collections.posts.read(slug);
+  if (!post) {
+    return {};
+  }
+  return {
+    title: post.title,
+    description: `Noticia de EnciCat: ${post.title}.`,
+    openGraph: post.image ? { images: [post.image] } : undefined,
+  };
 }
 
 export default async function PostPage({

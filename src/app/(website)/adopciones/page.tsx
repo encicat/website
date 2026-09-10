@@ -1,10 +1,16 @@
 import { compareDesc } from 'date-fns';
+import type { Metadata } from 'next';
 
 import { AdoptionItem } from '@/src/components/AdoptionItem';
 import { Grid } from '@/src/components/Grid/Grid';
 import { Section } from '@/src/components/Section';
 import { SectionTitle } from '@/src/components/SectionTitle';
 import { reader } from '@/src/helpers/reader';
+
+export const metadata: Metadata = {
+  title: 'Adopciones',
+  description: 'Encuentra a tu nuevo compañero y dale un hogar.',
+};
 
 export default async function AdoptionsPage() {
   const adoptions = (await reader.collections.adoptions.all()).sort((a, b) =>

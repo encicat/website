@@ -1,10 +1,16 @@
 import { compareDesc } from 'date-fns';
+import type { Metadata } from 'next';
 
 import { Card } from '@/src/components/Card';
 import { Grid } from '@/src/components/Grid/Grid';
 import { Section } from '@/src/components/Section';
 import { SectionTitle } from '@/src/components/SectionTitle';
 import { reader } from '@/src/helpers/reader';
+
+export const metadata: Metadata = {
+  title: 'Noticias',
+  description: 'Mantente al día de las novedades de EnciCat.',
+};
 
 export default async function PostsPage() {
   const posts = (await reader.collections.posts.all()).sort((a, b) =>

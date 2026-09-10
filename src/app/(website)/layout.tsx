@@ -13,9 +13,27 @@ import { geistMono, geistSans } from './fonts';
 
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getCachedSettings();
+  const title = settings.title ?? 'EnciCat';
   return {
-    title: settings.title,
+    metadataBase: new URL(
+      process.env.NEXT_PUBLIC_SITE_URL ?? 'https://encicat.org',
+    ),
+    title: {
+      default: title,
+      template: `%s | ${title}`,
+    },
     description: settings.slogan,
+    openGraph: {
+      type: 'website',
+      siteName: title,
+      title,
+      description: settings.slogan,
+      locale: 'es_ES',
+      images: settings.logo ? [settings.logo] : undefined,
+    },
+    twitter: {
+      card: 'summary_large_image',
+    },
   };
 }
 

@@ -1,8 +1,13 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 
 import { Button } from '@/src/components/Button';
 import { Section } from '@/src/components/Section';
 import Layout from './(website)/layout';
+
+export const metadata: Metadata = {
+  title: 'Página no encontrada',
+};
 
 export default function NotFound() {
   return (

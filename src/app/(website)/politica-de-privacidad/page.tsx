@@ -1,7 +1,16 @@
+import type { Metadata } from 'next';
+
 import { DocumentRenderer } from '@/src/components/DocumentRenderer';
 import { Hero } from '@/src/components/Hero';
 import { Section } from '@/src/components/Section';
 import { reader } from '@/src/helpers/reader';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const privacy_page = await reader.singletons.privacy_page.read();
+  return {
+    title: privacy_page?.title ?? 'Política de privacidad',
+  };
+}
 
 export default async function PrivacyPage() {
   const privacy_page = await reader.singletons.privacy_page.read();

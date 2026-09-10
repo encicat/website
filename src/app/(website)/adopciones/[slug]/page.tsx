@@ -1,5 +1,6 @@
 import type { Node } from '@markdoc/markdoc';
 import { Bug, Cat, CheckCheck, Cpu, Syringe } from 'lucide-react';
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
@@ -16,6 +17,23 @@ export async function generateStaticParams() {
   return adoptions.map((adoption) => ({
     slug: adoption.slug,
   }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const adoption = await reader.collections.adoptions.read(slug);
+  if (!adoption) {
+    return {};
+  }
+  return {
+    title: `${adoption.name} busca hogar`,
+    description: `Adopta a ${adoption.name} en EnciCat.`,
+    openGraph: adoption.image ? { images: [adoption.image] } : undefined,
+  };
 }
 
 export default async function AdoptionPage({
