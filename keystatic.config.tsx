@@ -97,7 +97,7 @@ export default config({
     }),
     help_page: singleton({
       path: 'content/pages/help',
-      label: 'Página Ayudanos',
+      label: 'Página Cómo ayudarles',
       schema: {
         content: fields.markdoc({ label: 'Contenido' }),
       },

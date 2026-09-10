@@ -9,8 +9,8 @@ import { getHelpIcon } from '@/src/helpers/help';
 import { reader } from '@/src/helpers/reader';
 
 export const metadata: Metadata = {
-  title: 'Ayúdanos',
-  description: 'Descubre todas las formas en las que puedes ayudarnos.',
+  title: 'Cómo ayudarles',
+  description: 'Descubre todas las formas en las que puedes ayudarles.',
 };
 
 export default async function HelpPage() {
@@ -23,7 +23,7 @@ export default async function HelpPage() {
   return (
     <>
       <Hero bgImgSrc="/images/bg.png">
-        <h2 className="text-4xl uppercase">Ayúdanos</h2>
+        <h2 className="text-4xl uppercase">Cómo ayudarles</h2>
       </Hero>
       <Section>
         {content && (
