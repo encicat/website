@@ -23,7 +23,7 @@ export default async function ContactPage() {
       </Hero>
       <Section>
         <Grid>
-          <TextCard icon={<Mail />} title={'Escribenos'}>
+          <TextCard icon={<Mail />} title={'Escríbenos'}>
             <a href={`mailto:${settings?.email}`}>{settings?.email}</a>
           </TextCard>
           <TextCard icon={<SiInstagram />} title={'Instagram'}>

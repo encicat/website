@@ -19,7 +19,7 @@ export default async function HelpPage() {
   return (
     <>
       <Hero bgImgSrc="/images/bg.png">
-        <h2 className="text-4xl uppercase">Ayudanos</h2>
+        <h2 className="text-4xl uppercase">Ayúdanos</h2>
       </Hero>
       <Section>
         <Grid>

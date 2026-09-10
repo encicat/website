@@ -66,16 +66,16 @@ export const Footer: React.FC<Props> = ({
               Noticias
             </Link>
             <Link href={'/ayudanos'} className="link">
-              Ayudanos
+              Ayúdanos
             </Link>
             <Link href={'/contacto'} className="link">
               Contacto
             </Link>
           </div>
         </div>
-        {/* Contactanos */}
+        {/* Contáctanos */}
         <div>
-          <Title>Contactanos</Title>
+          <Title>Contáctanos</Title>
           <a href={`mailto:${email}`} className="link">
             <Mail className="inline" /> {email}
           </a>
