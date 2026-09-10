@@ -52,7 +52,7 @@ export const Footer: React.FC<Props> = ({
         {/* Enlaces */}
         <div>
           <Title>Enlaces</Title>
-          <div className="flex flex-col">
+          <div className="flex flex-col items-center md:items-start">
             <Link href={'/'} className="link">
               Inicio
             </Link>
@@ -74,7 +74,7 @@ export const Footer: React.FC<Props> = ({
           </div>
         </div>
         {/* Contáctanos */}
-        <div>
+        <div className="text-center md:text-left">
           <Title>Contáctanos</Title>
           <a href={`mailto:${email}`} className="link">
             <Mail className="inline" /> {email}
