@@ -116,7 +116,7 @@ export default async function AdoptionPage({
         )}
         {!adoption.adoptedAt && (
           <div className="mt-16">
-            <Share shareText="Ayúdanos a conseguir la adopción responsable" />
+            <Share shareText="Ayúdanos a conseguir la adopción responsable que se merecen" />
           </div>
         )}
       </div>
