@@ -12,7 +12,7 @@ export const Hero: React.FC<Props> = ({
   <div className="w-full block px-6 py-12 md:p-12 relative  border-b-gray-100 border-b">
     {bgImgSrc && (
       <div
-        className={`absolute inset-0 -z-10 ${bgFixed ? 'bg-fixed' : ''}`}
+        className={`absolute inset-0 -z-10 ${bgFixed ? 'md:bg-fixed' : ''}`}
         style={{
           backgroundImage: `url(${bgImgSrc})`,
         }}

@@ -20,7 +20,7 @@ export const Section: React.FC<Props> = ({
   >
     {(bgImgSrc || bgColor) && (
       <div
-        className={`absolute inset-0 -z-10 ${bgFixed ? 'bg-fixed' : ''}`}
+        className={`absolute inset-0 -z-10 ${bgFixed ? 'md:bg-fixed' : ''}`}
         style={{
           ...(bgImgSrc
             ? {

@@ -19,7 +19,7 @@ export const Cookies: React.FC<Props> = ({ children }) => {
 
   return (
     show && (
-      <div className="fixed bottom-0 bg-white m-8 p-8 border-green-700 border lg:w-1/2 rounded-4xl z-1000 shadow-xl">
+      <div className="fixed bottom-0 bg-white m-4 p-5 md:m-8 md:p-8 border-green-700 border lg:w-1/2 rounded-4xl z-1000 shadow-xl">
         {children}
         <Button
           onClick={() => {
