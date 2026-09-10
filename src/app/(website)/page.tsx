@@ -21,6 +21,12 @@ export default async function HomePage() {
       compareDesc(a?.entry?.publishedAt ?? '', b?.entry?.publishedAt ?? ''),
     )
     .slice(0, 3);
+  const adopted = (await reader.collections.adoptions.all())
+    .filter(({ entry }) => entry.adoptedAt)
+    .sort((a, b) =>
+      compareDesc(a?.entry?.adoptedAt ?? '', b?.entry?.adoptedAt ?? ''),
+    )
+    .slice(0, 3);
   const donation_methods = await reader.singletons.donation_methods.read();
   const home_page = await reader.singletons.home_page.read();
 
@@ -92,6 +98,29 @@ export default async function HomePage() {
           <Button href="/noticias">Ver todas las noticias</Button>
         </div>
       </Section>
+      {adopted.length > 0 && (
+        <Section>
+          <SectionTitle
+            title="Adoptados"
+            subtitle="Ya han encontrado un hogar"
+          />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 lg:px-0">
+            {adopted.map(({ slug, entry: adoption }) => (
+              <AdoptionItem
+                key={slug}
+                name={adoption.name}
+                birthdate={String(adoption.birthdate)}
+                gender={adoption.gender}
+                img={adoption?.image ?? ''}
+                slug={slug}
+              />
+            ))}
+          </div>
+          <div className="flex justify-center mt-16">
+            <Button href="/adoptados">Ver todos los adoptados</Button>
+          </div>
+        </Section>
+      )}
     </main>
   );
 }
