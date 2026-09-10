@@ -1,7 +1,8 @@
-import { Mail } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { toTelHref } from '@/src/helpers/phone';
 import { getSocialIcon, type SocialNetworks } from '@/src/helpers/social';
 import { Title } from '../Title';
 
@@ -10,6 +11,7 @@ interface Props {
   socials_networks?: SocialNetworks;
   logo?: string | null;
   email?: string;
+  phone?: string;
 }
 
 export const Footer: React.FC<Props> = ({
@@ -17,6 +19,7 @@ export const Footer: React.FC<Props> = ({
   logo,
   socials_networks = [],
   email = '',
+  phone = '',
 }) => {
   return (
     <div className="w-full py-8 px-5 mb-8 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
@@ -76,9 +79,14 @@ export const Footer: React.FC<Props> = ({
         {/* Contáctanos */}
         <div className="text-center md:text-left">
           <Title>Contáctanos</Title>
-          <a href={`mailto:${email}`} className="link">
+          <a href={`mailto:${email}`} className="link block">
             <Mail className="inline" /> {email}
           </a>
+          {phone !== '' && (
+            <a href={toTelHref(phone)} className="link block mt-1">
+              <Phone className="inline" /> {phone}
+            </a>
+          )}
         </div>
       </div>
       <div className="max-w-5xl m-auto mt-8 text-gray-500 text-center">

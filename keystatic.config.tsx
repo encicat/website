@@ -29,6 +29,7 @@ export default config({
           publicPath: '/images/',
         }),
         email: fields.text({ label: 'Email' }),
+        phone: fields.text({ label: 'Teléfono' }),
         cookies_message: fields.markdoc({ label: 'Mensaje de cookies' }),
       },
     }),

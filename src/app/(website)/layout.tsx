@@ -51,6 +51,7 @@ export default async function Layout({
       >
         <TopBar
           email={String(settings?.email)}
+          phone={settings?.phone}
           socials_networks={social?.socials_networks}
         />
         <Header logo={settings?.logo} title={settings?.title} />
@@ -60,6 +61,7 @@ export default async function Layout({
           logo={settings?.logo}
           socials_networks={social?.socials_networks}
           email={settings?.email}
+          phone={settings?.phone}
         />
         <Cookies>
           <DocumentRenderer document={settings.cookies_message} />
