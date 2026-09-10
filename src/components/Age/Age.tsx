@@ -5,9 +5,12 @@ import { Chip } from '../Chip';
 
 interface Props {
   birthdate: string;
+  plain?: boolean;
 }
 
-export const Age: React.FC<Props> = ({ birthdate }) => {
+export const Age: React.FC<Props> = ({ birthdate, plain = false }) => {
   const age = getAgeMaximized(birthdate);
-  return <Chip icon={<Cake />}>{`${age.amount} ${age.unit}`}</Chip>;
+  const label = `${age.amount} ${age.unit}`;
+
+  return plain ? <span>{label}</span> : <Chip icon={<Cake />}>{label}</Chip>;
 };

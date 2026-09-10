@@ -18,11 +18,13 @@ export const AdoptionItem: React.FC<Props> = ({
   slug,
 }) => {
   return (
-    <Card title={name} imgSrc={String(img)} url={`/adopciones/${slug}`}>
-      <div className="flex gap-2">
-        <Gender gender={gender as 'male' | 'female'} />
-        <Age birthdate={birthdate} />
-      </div>
+    <Card
+      title={name}
+      titleExtra={<Gender gender={gender as 'male' | 'female'} iconOnly />}
+      imgSrc={String(img)}
+      url={`/adopciones/${slug}`}
+    >
+      <Age birthdate={birthdate} plain />
     </Card>
   );
 };

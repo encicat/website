@@ -9,8 +9,19 @@ const genderMap = {
 
 interface Props {
   gender: 'male' | 'female';
+  iconOnly?: boolean;
 }
 
-export const Gender: React.FC<Props> = ({ gender }) => {
-  return <Chip icon={genderMap[gender].icon}>{genderMap[gender].text}</Chip>;
+export const Gender: React.FC<Props> = ({ gender, iconOnly = false }) => {
+  const { text, icon } = genderMap[gender];
+
+  if (iconOnly) {
+    return (
+      <span title={text} aria-label={text} className="text-green-700">
+        {icon}
+      </span>
+    );
+  }
+
+  return <Chip icon={icon}>{text}</Chip>;
 };

@@ -7,6 +7,7 @@ import { DateTag } from '../DateTag';
 interface Props {
   children?: React.ReactNode;
   title: string;
+  titleExtra?: React.ReactNode;
   imgSrc?: string;
   date?: string;
   url: string;
@@ -15,6 +16,7 @@ interface Props {
 export const Card: React.FC<Props> = ({
   children,
   title,
+  titleExtra,
   imgSrc = '',
   date = '',
   url = '',
@@ -32,9 +34,12 @@ export const Card: React.FC<Props> = ({
     )}
     {date !== '' && <DateTag date={new Date(date)} />}
     <div className="p-8">
-      <Link className="text-xl font-bold mb-4 block link" href={url}>
-        {title}
-      </Link>
+      <div className="flex items-center gap-2 mb-4">
+        <Link className="text-xl font-bold link" href={url}>
+          {title}
+        </Link>
+        {titleExtra}
+      </div>
       {children && <div className="mb-4">{children}</div>}
       <Button href={url}>Leer más...</Button>
     </div>
