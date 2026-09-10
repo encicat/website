@@ -8,12 +8,7 @@ interface Props {
 export const SectionTitle: React.FC<Props> = ({ title, subtitle }) => (
   <div className="mb-20 px-4 lg:px-0">
     {subtitle && (
-      <div
-        className={`
-text-md text-gray-400 font-bold text-center uppercase
-before:content[] before:inline-block before:relative before:top-[-7] before:w-[32] before:h-[2] before:mr-[10] before:bg-gray-400
-after:content[]  after:inline-block  after:relative  after:top-[-7]  after:w-[32] after:h-[2] after:ml-[10] after:bg-gray-400`}
-      >
+      <div className="text-md text-gray-400 font-bold text-center uppercase">
         {subtitle}
       </div>
     )}
