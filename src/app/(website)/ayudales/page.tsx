@@ -37,7 +37,7 @@ export default async function HelpPage() {
             return (
               <Link
                 key={slug}
-                href={`/ayudanos/${slug}`}
+                href={`/ayudales/${slug}`}
                 className="bg-neutral-50 rounded-2xl p-8 flex flex-col items-center text-center transition-all hover:shadow-md"
               >
                 <div className="bg-green-800 w-10 h-10 rounded-full text-white flex items-center justify-center">

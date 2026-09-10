@@ -67,7 +67,7 @@ export default async function HomePage() {
             ))}
           </div>
           <div className="flex justify-center mt-16 px-4 lg:px-0">
-            <Button href="/ayudanos" className="text-center">
+            <Button href="/ayudales" className="text-center">
               Descubre todas las formas en las que puedes ayudarnos
             </Button>
           </div>

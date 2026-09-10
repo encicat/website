@@ -12,7 +12,7 @@ interface Props {
 
 const links = [
   { href: '/adopciones', label: 'Adopciones' },
-  { href: '/ayudanos', label: 'Ayúdanos' },
+  { href: '/ayudales', label: 'Ayúdanos' },
   { href: '/adoptados', label: 'Adoptados' },
   { href: '/quienes-somos', label: 'Quiénes somos' },
   { href: '/contacto', label: 'Contacto' },
