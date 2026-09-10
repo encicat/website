@@ -22,6 +22,7 @@ export default async function AdoptionsPage() {
   return (
     <Section>
       <SectionTitle
+        as="h1"
         title="Adopciones"
         subtitle="Encuentra a tu nuevo compañero"
       />

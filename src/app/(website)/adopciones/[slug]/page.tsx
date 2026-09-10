@@ -51,7 +51,7 @@ export default async function AdoptionPage({
   return (
     <article>
       <Hero bgImgSrc="/images/bg.png">
-        <h2 className="text-4xl uppercase">{adoption?.name}</h2>
+        <h1 className="text-4xl uppercase">{adoption?.name}</h1>
       </Hero>
 
       <div className="max-w-5xl mx-auto pt-10 pb-20 px-6 lg:px-0">
@@ -135,7 +135,7 @@ export default async function AdoptionPage({
           <div key={image} className="relative h-100">
             <Image
               src={String(image)}
-              alt={String(image)}
+              alt={`Foto de ${adoption.name}`}
               fill
               className="object-cover"
             />

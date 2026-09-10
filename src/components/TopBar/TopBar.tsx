@@ -32,7 +32,12 @@ export const TopBar: React.FC<Props> = ({
             const Icon = getSocialIcon(item.name);
             return (
               <li key={item.name} className="pl-2">
-                <a href={item.url} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={item.name}
+                >
                   <Icon title={item.name} />
                 </a>
               </li>

@@ -48,7 +48,7 @@ export default async function HelpDetailPage({
   return (
     <>
       <Hero bgImgSrc="/images/bg.png">
-        <h2 className="text-4xl uppercase">{page.title}</h2>
+        <h1 className="text-4xl uppercase">{page.title}</h1>
       </Hero>
       <Section>
         <div className="px-6 lg:px-0">

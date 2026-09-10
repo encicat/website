@@ -36,7 +36,7 @@ export const Header: React.FC<Props> = ({ logo = '', title = '' }) => {
         </div>
         <button
           type="button"
-          className="md:hidden p-2"
+          className="md:hidden p-3"
           aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
           aria-expanded={open}
           aria-controls="main-nav"

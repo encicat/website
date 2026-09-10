@@ -18,7 +18,7 @@ export default async function AboutPage() {
   return (
     <>
       <Hero bgImgSrc="/images/bg.png">
-        <h2 className="text-4xl uppercase">{about_page?.title}</h2>
+        <h1 className="text-4xl uppercase">{about_page?.title}</h1>
       </Hero>
       <Section>
         <div className="mt-0 mb-8 px-6 lg:px-0">

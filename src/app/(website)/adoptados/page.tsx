@@ -21,7 +21,11 @@ export default async function AdoptedPage() {
 
   return (
     <Section>
-      <SectionTitle title="Adoptados" subtitle="Ya han encontrado un hogar" />
+      <SectionTitle
+        as="h1"
+        title="Adoptados"
+        subtitle="Ya han encontrado un hogar"
+      />
       <Grid>
         {adoptions.map(({ slug, entry: adoption }) => (
           <AdoptionItem

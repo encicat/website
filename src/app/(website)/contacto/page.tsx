@@ -26,7 +26,7 @@ export default async function ContactPage() {
   return (
     <>
       <Hero bgImgSrc="/images/bg.png">
-        <h2 className="text-4xl uppercase">Contacto</h2>
+        <h1 className="text-4xl uppercase">Contacto</h1>
       </Hero>
       <Section>
         <Grid>

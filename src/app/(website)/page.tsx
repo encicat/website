@@ -5,9 +5,11 @@ import { Button } from '@/src/components/Button';
 import { DonationItem } from '@/src/components/DonationItem';
 import { Section } from '@/src/components/Section';
 import { SectionTitle } from '@/src/components/SectionTitle';
+import { getCachedSettings } from '@/src/helpers/cached';
 import { reader } from '@/src/helpers/reader';
 
 export default async function HomePage() {
+  const settings = await getCachedSettings();
   const adoptions = (await reader.collections.adoptions.all())
     .filter(({ entry }) => !entry.adoptedAt)
     .sort((a, b) =>
@@ -25,6 +27,7 @@ export default async function HomePage() {
 
   return (
     <main>
+      <h1 className="sr-only">{settings.title ?? 'EnciCat'}</h1>
       {home_page?.adoption_show === 'yes' && (
         <Section>
           <SectionTitle

@@ -43,6 +43,7 @@ export const Footer: React.FC<Props> = ({
                     href={item.url}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={item.name}
                     className="link"
                   >
                     <Icon title={item.name} />
