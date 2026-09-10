@@ -19,6 +19,6 @@ export const Hero: React.FC<Props> = ({
       />
     )}
 
-    <div className="w-5xl mx-auto">{children}</div>
+    <div className="max-w-5xl mx-auto">{children}</div>
   </div>
 );
