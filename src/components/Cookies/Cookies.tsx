@@ -1,9 +1,10 @@
 'use client';
 
-import { getCookie, hasCookie, setCookie } from 'cookies-next/client';
 import * as React from 'react';
 
 import { Button } from '../Button';
+
+const STORAGE_KEY = 'encicat-cookie-banner';
 
 interface Props {
   children: React.ReactNode;
@@ -13,12 +14,7 @@ export const Cookies: React.FC<Props> = ({ children }) => {
   const [show, setShow] = React.useState(false);
 
   React.useEffect(() => {
-    if (
-      !hasCookie('encicat-cookie-banner') ||
-      getCookie('encicat-cookie-banner') !== 'hide'
-    ) {
-      setShow(true);
-    }
+    setShow(window.localStorage.getItem(STORAGE_KEY) !== 'hide');
   }, []);
 
   return (
@@ -27,9 +23,8 @@ export const Cookies: React.FC<Props> = ({ children }) => {
         {children}
         <Button
           onClick={() => {
-            setCookie('encicat-cookie-banner', 'hide');
+            window.localStorage.setItem(STORAGE_KEY, 'hide');
             setShow(false);
-            return false;
           }}
         >
           Entendido!
