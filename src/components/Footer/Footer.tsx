@@ -59,13 +59,13 @@ export const Footer: React.FC<Props> = ({
             <Link href={'/adopciones'} className="link">
               Adopciones
             </Link>
-            <Link href={'/posts'} className="link">
+            <Link href={'/noticias'} className="link">
               Noticias
             </Link>
-            <Link href={'/Ayudanos'} className="link">
+            <Link href={'/ayudanos'} className="link">
               Ayudanos
             </Link>
-            <Link href={'/Contacto'} className="link">
+            <Link href={'/contacto'} className="link">
               Contacto
             </Link>
           </div>
