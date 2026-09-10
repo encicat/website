@@ -111,9 +111,11 @@ export default async function AdoptionPage({
             <DocumentRenderer document={conditions} />
           </div>
         )}
-        <div className="mt-16">
-          <Share shareText="Ayudanos a conseguir la adopción responsable" />
-        </div>
+        {!adoption.adoptedAt && (
+          <div className="mt-16">
+            <Share shareText="Ayudanos a conseguir la adopción responsable" />
+          </div>
+        )}
       </div>
       <div className="grid grid-cols-4">
         {adoption.image && adoption.image !== '' && (
