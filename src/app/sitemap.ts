@@ -14,6 +14,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${baseUrl}/politica-de-privacidad`, priority: 0.3 },
     { url: `${baseUrl}/terminos-y-condiciones`, priority: 0.3 },
     { url: `${baseUrl}/aviso-legal`, priority: 0.3 },
+    { url: `${baseUrl}/accesibilidad`, priority: 0.3 },
   ];
 
   const adoptions = await reader.collections.adoptions.all();

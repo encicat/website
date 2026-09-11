@@ -118,6 +118,14 @@ export default config({
         content: fields.markdoc({ label: 'Contenido' }),
       },
     }),
+    accessibility_page: singleton({
+      path: 'content/pages/accessibility',
+      label: 'Accesibilidad',
+      schema: {
+        title: fields.text({ label: 'Título de la página' }),
+        content: fields.markdoc({ label: 'Contenido' }),
+      },
+    }),
     terms_page: singleton({
       path: 'content/pages/terms',
       label: 'Términos y condiciones',
@@ -336,6 +344,7 @@ export default config({
       'help_page',
       'about_page',
       'legal_page',
+      'accessibility_page',
       'terms_page',
       'privacy_page',
       '---',

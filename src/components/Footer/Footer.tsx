@@ -105,6 +105,10 @@ export const Footer: React.FC<Props> = ({
           |{' '}
           <Link href="/politica-de-privacidad" className="link">
             Política de privacidad
+          </Link>{' '}
+          |{' '}
+          <Link href="/accesibilidad" className="link">
+            Accesibilidad
           </Link>
         </p>
       </div>
