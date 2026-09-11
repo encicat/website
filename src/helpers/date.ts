@@ -4,23 +4,9 @@ import {
   differenceInYears,
 } from 'date-fns';
 
-const months = [
-  'Ene',
-  'Feb',
-  'Mar',
-  'Abr',
-  'May',
-  'Jun',
-  'Jul',
-  'Ago',
-  'Sep',
-  'Oct',
-  'Nov',
-  'Dic',
-];
-
-export const getMonth = (date: Date) => months[date.getMonth()];
-export const getDay = (date: Date) => String(date.getDate()).padStart(2, '0');
+const getDaysUnit = (n: number) => (n > 1 ? 'días' : 'día');
+const getMonthsUnit = (n: number) => (n > 1 ? 'meses' : 'mes');
+const getYearsUnit = (n: number) => (n > 1 ? 'años' : 'año');
 
 export const getAgeMaximized = (date: string) => {
   const now = Date.now();
@@ -46,7 +32,3 @@ export const getAgeMaximized = (date: string) => {
     unit: getDaysUnit(days),
   };
 };
-
-export const getDaysUnit = (n: number) => (n > 1 ? 'días' : 'día');
-export const getMonthsUnit = (n: number) => (n > 1 ? 'meses' : 'mes');
-export const getYearsUnit = (n: number) => (n > 1 ? 'años' : 'año');

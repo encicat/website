@@ -2,14 +2,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { Button } from '../Button';
-import { DateTag } from '../DateTag';
 
 interface Props {
   children?: React.ReactNode;
   title: string;
   titleExtra?: React.ReactNode;
   imgSrc?: string;
-  date?: string;
   url: string;
 }
 
@@ -18,7 +16,6 @@ export const Card: React.FC<Props> = ({
   title,
   titleExtra,
   imgSrc = '',
-  date = '',
   url = '',
 }) => (
   <div className="bg-white flex flex-col group shadow-sm">
@@ -32,7 +29,6 @@ export const Card: React.FC<Props> = ({
         />
       </Link>
     )}
-    {date !== '' && <DateTag date={new Date(date)} />}
     <div className="p-8">
       <div className="flex items-center gap-2 mb-4">
         <Link className="text-xl font-bold link" href={url}>
