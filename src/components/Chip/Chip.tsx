@@ -1,7 +1,6 @@
 interface Props {
   children: React.ReactNode;
   icon?: React.ReactNode;
-  title?: string;
   style?: 'info' | 'error';
 }
 
@@ -10,17 +9,9 @@ const colorMap = {
   error: 'bg-red-100',
 };
 
-export const Chip: React.FC<Props> = ({
-  children,
-  icon,
-  title = '',
-  style = 'info',
-}) => {
+export const Chip: React.FC<Props> = ({ children, icon, style = 'info' }) => {
   return (
-    <div
-      className={`${colorMap[style]} inline-block rounded-full px-4 py-2`}
-      title={title}
-    >
+    <div className={`${colorMap[style]} inline-block rounded-full px-4 py-2`}>
       <div className="flex">
         {icon && (
           <div className="mr-2" aria-hidden="true">
