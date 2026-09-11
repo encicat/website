@@ -9,6 +9,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const terms_page = await reader.singletons.terms_page.read();
   return {
     title: terms_page?.title ?? 'Términos y condiciones',
+    description: 'Términos y condiciones de uso del sitio web de EnciCat.',
     alternates: { canonical: '/terminos-y-condiciones' },
   };
 }

@@ -10,6 +10,7 @@ import { getCachedSettings } from '@/src/helpers/cached';
 import { reader } from '@/src/helpers/reader';
 
 export const metadata: Metadata = {
+  title: { absolute: 'EnciCat, protectora de animales en Villa del Prado' },
   alternates: { canonical: '/' },
 };
 

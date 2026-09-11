@@ -9,6 +9,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const about_page = await reader.singletons.about_page.read();
   return {
     title: about_page?.title ?? 'Quiénes somos',
+    description:
+      'Conoce a EnciCat, protectora de animales sin ánimo de lucro en Villa del Prado (Madrid).',
     alternates: { canonical: '/quienes-somos' },
   };
 }
