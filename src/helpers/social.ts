@@ -8,7 +8,7 @@ import type { Entry } from '@keystatic/core/reader';
 
 import type keystaticConfig from '@/keystatic.config';
 
-export const socialIconMap = {
+const socialIconMap = {
   instagram: SiInstagram,
   tiktok: SiTiktok,
   youtube: SiYoutube,

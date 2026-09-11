@@ -11,7 +11,7 @@ import {
   Users,
 } from 'lucide-react';
 
-export const helpIconMap = {
+const helpIconMap = {
   coins: Coins,
   home: Home,
   heart: Heart,
