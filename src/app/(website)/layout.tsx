@@ -7,6 +7,7 @@ import { Footer } from '@/src/components/Footer';
 import { Header } from '@/src/components/Header';
 import { TopBar } from '@/src/components/TopBar/TopBar';
 import { getCachedSettings, getCachedSocial } from '@/src/helpers/cached';
+import { siteUrl } from '@/src/helpers/site';
 
 import './globals.css';
 import { geistMono, geistSans } from './fonts';
@@ -15,9 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const settings = await getCachedSettings();
   const title = settings.title ?? 'EnciCat';
   return {
-    metadataBase: new URL(
-      process.env.NEXT_PUBLIC_SITE_URL ?? 'https://encicat.org',
-    ),
+    metadataBase: new URL(siteUrl),
     title: {
       default: title,
       template: `%s | ${title}`,
@@ -29,7 +28,6 @@ export async function generateMetadata(): Promise<Metadata> {
       title,
       description: settings.slogan,
       locale: 'es_ES',
-      images: settings.logo ? [settings.logo] : undefined,
     },
     twitter: {
       card: 'summary_large_image',

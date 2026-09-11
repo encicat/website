@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://encicat.org';
+import { siteUrl as baseUrl } from '@/src/helpers/site';
 
 export default function robots(): MetadataRoute.Robots {
   return {
