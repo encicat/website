@@ -32,7 +32,7 @@ export default async function HomePage() {
   const home_page = await reader.singletons.home_page.read();
 
   return (
-    <main>
+    <>
       <h1 className="sr-only">{settings.title ?? 'EnciCat'}</h1>
       {home_page?.adoption_show === 'yes' && (
         <Section>
@@ -105,6 +105,6 @@ export default async function HomePage() {
           </div>
         </Section>
       )}
-    </main>
+    </>
   );
 }

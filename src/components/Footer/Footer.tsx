@@ -2,6 +2,7 @@ import { Mail, Phone } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { NavLink } from '@/src/components/NavLink';
 import { toTelHref } from '@/src/helpers/phone';
 import { getSocialIcon, type SocialNetworks } from '@/src/helpers/social';
 import { Title } from '../Title';
@@ -22,7 +23,7 @@ export const Footer: React.FC<Props> = ({
   phone = '',
 }) => {
   return (
-    <div className="w-full py-8 px-5 mb-8 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+    <footer className="w-full py-8 px-5 mb-8 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
       <div className="max-w-5xl m-auto grid grid-cols-1 md:grid-cols-3 gap-4">
         {/* Logo */}
         <div className="text-center">
@@ -57,21 +58,21 @@ export const Footer: React.FC<Props> = ({
         <div>
           <Title>Enlaces</Title>
           <div className="flex flex-col items-center md:items-start">
-            <Link href={'/adopciones'} className="link">
+            <NavLink href="/adopciones" className="link">
               Adopciones
-            </Link>
-            <Link href={'/ayudales'} className="link">
+            </NavLink>
+            <NavLink href="/ayudales" className="link">
               Cómo ayudarles
-            </Link>
-            <Link href={'/adoptados'} className="link">
+            </NavLink>
+            <NavLink href="/adoptados" className="link">
               Adoptados
-            </Link>
-            <Link href={'/quienes-somos'} className="link">
+            </NavLink>
+            <NavLink href="/quienes-somos" className="link">
               Quiénes somos
-            </Link>
-            <Link href={'/contacto'} className="link">
+            </NavLink>
+            <NavLink href="/contacto" className="link">
               Contacto
-            </Link>
+            </NavLink>
           </div>
         </div>
         {/* Contáctanos */}
@@ -103,6 +104,6 @@ export const Footer: React.FC<Props> = ({
           </Link>
         </p>
       </div>
-    </div>
+    </footer>
   );
 };

@@ -71,13 +71,15 @@ export default async function Layout({
             __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
           }}
         />
-        <TopBar
-          email={String(settings?.email)}
-          phone={settings?.phone}
-          socials_networks={social?.socials_networks}
-        />
-        <Header logo={settings?.logo} title={settings?.title} />
-        {children}
+        <header>
+          <TopBar
+            email={String(settings?.email)}
+            phone={settings?.phone}
+            socials_networks={social?.socials_networks}
+          />
+          <Header logo={settings?.logo} title={settings?.title} />
+        </header>
+        <main>{children}</main>
         <Footer
           pageTitle={settings?.title}
           logo={settings?.logo}

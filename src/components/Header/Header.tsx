@@ -5,6 +5,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 
+import { NavLink } from '@/src/components/NavLink';
+
 interface Props {
   logo?: string | null;
   title?: string;
@@ -74,9 +76,9 @@ export const Header: React.FC<Props> = ({ logo = '', title = '' }) => {
           <ul className="flex gap-1">
             {links.map(({ href, label }) => (
               <li key={href}>
-                <Link href={href} className="px-3 py-5 block text-center">
+                <NavLink href={href} className="px-3 py-5 block text-center">
                   {label}
-                </Link>
+                </NavLink>
               </li>
             ))}
           </ul>
@@ -86,13 +88,13 @@ export const Header: React.FC<Props> = ({ logo = '', title = '' }) => {
         <ul className="flex flex-col pt-4 pb-4">
           {links.map(({ href, label }) => (
             <li key={href}>
-              <Link
+              <NavLink
                 href={href}
                 className="block p-4 text-center text-lg"
                 onClick={() => setOpen(false)}
               >
                 {label}
-              </Link>
+              </NavLink>
             </li>
           ))}
         </ul>
