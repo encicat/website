@@ -1,0 +1,26 @@
+# EnciCat
+
+> EnciCat es una asociación sin ánimo de lucro y protectora de animales de Villa del Prado (Madrid). Rescatamos gatos que necesitan salir de la calle, los cuidamos en casas de acogida y les buscamos un hogar responsable. No tenemos refugio propio y funcionamos con la ayuda de personas voluntarias y donaciones.
+
+## Sobre la asociación
+
+- [Quiénes somos](https://encicat.org/quienes-somos): nuestra historia, misión y valores.
+- [Contacto](https://encicat.org/contacto): correo electrónico, teléfono y redes sociales.
+- [Aviso legal](https://encicat.org/aviso-legal): datos identificativos y condiciones de uso.
+- [Política de privacidad](https://encicat.org/politica-de-privacidad)
+- [Términos y condiciones](https://encicat.org/terminos-y-condiciones)
+
+## Adopciones
+
+- [Adopciones disponibles](https://encicat.org/adopciones): gatos que buscan familia.
+- [Adoptados](https://encicat.org/adoptados): gatos que ya han encontrado un hogar.
+- [Cómo adoptar](https://encicat.org/ayudales/adopcion): requisitos y proceso de adopción.
+
+## Cómo ayudarles
+
+- [Cómo ayudarles](https://encicat.org/ayudales): todas las formas de colaborar.
+- [Donaciones](https://encicat.org/ayudales/donaciones): Bizum, transferencia y lista de deseos.
+- [Casas de acogida](https://encicat.org/ayudales/acogida): acoge temporalmente a un gato.
+- [Apadrinamiento](https://encicat.org/ayudales/apadrinamiento): acompaña a un gato por 5 € al mes.
+- [Voluntariado](https://encicat.org/ayudales/voluntariado)
+- [Difusión](https://encicat.org/ayudales/difusion)
