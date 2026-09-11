@@ -95,6 +95,10 @@ export const Footer: React.FC<Props> = ({
           - Contenidos bajo licencia libre.
         </p>
         <p>
+          <Link href="/aviso-legal" className="link">
+            Aviso legal
+          </Link>{' '}
+          |{' '}
           <Link href="/terminos-y-condiciones" className="link">
             Términos y condiciones
           </Link>{' '}
