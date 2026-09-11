@@ -38,7 +38,7 @@ export const TopBar: React.FC<Props> = ({
                   rel="noopener noreferrer"
                   aria-label={item.name}
                 >
-                  <Icon title={item.name} />
+                  <Icon title={item.name} size={28} />
                 </a>
               </li>
             );

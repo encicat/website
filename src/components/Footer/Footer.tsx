@@ -47,7 +47,7 @@ export const Footer: React.FC<Props> = ({
                     aria-label={item.name}
                     className="link"
                   >
-                    <Icon title={item.name} />
+                    <Icon title={item.name} size={28} />
                   </a>
                 </li>
               );
