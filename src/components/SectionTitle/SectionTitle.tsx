@@ -21,7 +21,7 @@ export const SectionTitle: React.FC<Props> = ({
       {title}
     </Heading>
     <div className="flex justify-center mt-4">
-      <PawPrint className="text-green-700" />
+      <PawPrint className="text-green-700" aria-hidden="true" />
     </div>
   </div>
 );

@@ -22,7 +22,11 @@ export const Chip: React.FC<Props> = ({
       title={title}
     >
       <div className="flex">
-        {icon && <div className="mr-2">{icon}</div>}
+        {icon && (
+          <div className="mr-2" aria-hidden="true">
+            {icon}
+          </div>
+        )}
         {children}
       </div>
     </div>

@@ -18,11 +18,11 @@ export const TopBar: React.FC<Props> = ({
     <div className="max-w-5xl m-auto flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
       <div className="flex flex-wrap items-center gap-x-4">
         <a href={`mailto:${email}`} aria-label="Escríbenos" className="flex">
-          <Mail />
+          <Mail aria-hidden="true" />
         </a>
         {phone !== '' && (
           <a href={toTelHref(phone)} aria-label="Llámanos" className="flex">
-            <Phone />
+            <Phone aria-hidden="true" />
           </a>
         )}
       </div>

@@ -79,11 +79,11 @@ export const Footer: React.FC<Props> = ({
         <div className="text-center md:text-left">
           <Title>Contáctanos</Title>
           <a href={`mailto:${email}`} className="link block">
-            <Mail className="inline" /> {email}
+            <Mail className="inline" aria-hidden="true" /> {email}
           </a>
           {phone !== '' && (
             <a href={toTelHref(phone)} className="link block mt-1">
-              <Phone className="inline" /> {phone}
+              <Phone className="inline" aria-hidden="true" /> {phone}
             </a>
           )}
         </div>

@@ -70,7 +70,7 @@ export const Header: React.FC<Props> = ({ logo = '', title = '' }) => {
           aria-controls="main-nav"
           onClick={() => setOpen((value) => !value)}
         >
-          {open ? <X /> : <Menu />}
+          {open ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
         </button>
         <nav className="hidden md:block self-center">
           <ul className="flex gap-1">
