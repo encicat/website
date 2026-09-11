@@ -1,32 +1,44 @@
 import type { Node } from '@markdoc/markdoc';
 
-import { removeAttrs, renderAttrs } from './attr';
+import { escapeHtml, removeAttrs, renderAttrs } from './attr';
+
+const renderChildren = (node: Node): string =>
+  node.children.map(renderTag).join('');
 
 const document = (node: Node): string =>
-  `<div class="document">${node.children.map(renderTag).join('')}</div>`;
-const text = (node: Node): string => node.attributes.content;
-const inline = (node: Node): string => node.children.map(renderTag).join('');
-const heading = (node: Node): string =>
-  `<h${node.attributes.level}${renderAttrs(removeAttrs(node.attributes, ['level']))}>${node.children.map(renderTag).join('')}</h${node.attributes.level}>`;
+  `<div class="document">${renderChildren(node)}</div>`;
+const text = (node: Node): string => escapeHtml(node.attributes.content);
+const inline = (node: Node): string => renderChildren(node);
+const heading = (node: Node): string => {
+  const level = Math.min(Math.max(Number(node.attributes.level) || 2, 1), 6);
+  return `<h${level}${renderAttrs(removeAttrs(node.attributes, ['level']))}>${renderChildren(node)}</h${level}>`;
+};
 const paragraph = (node: Node): string =>
-  `<p${renderAttrs(node.attributes)}>${node.children.map(renderTag).join('')}</p>`;
-const link = (node: Node): string =>
-  `<a${renderAttrs(node.attributes)}${node.attributes.href.startsWith('http') ? ' target="_blank" rel="noopener noreferrer"' : ''}>${node.children.map(renderTag).join('')}</a>`;
+  `<p${renderAttrs(node.attributes)}>${renderChildren(node)}</p>`;
+const isSafeUrl = (href: string) => /^(https?:|mailto:|tel:|\/|#)/i.test(href);
+const link = (node: Node): string => {
+  const href = node.attributes.href;
+  const children = renderChildren(node);
+  if (typeof href !== 'string' || !isSafeUrl(href)) {
+    return children;
+  }
+  return `<a${renderAttrs(node.attributes)}${href.startsWith('http') ? ' target="_blank" rel="noopener noreferrer"' : ''}>${children}</a>`;
+};
 const strong = (node: Node): string =>
-  `<strong${renderAttrs(removeAttrs(node.attributes, ['marker']))}>${node.children.map(renderTag).join('')}</strong>`;
+  `<strong${renderAttrs(removeAttrs(node.attributes, ['marker']))}>${renderChildren(node)}</strong>`;
 const em = (node: Node): string =>
-  `<em${renderAttrs(removeAttrs(node.attributes, ['marker']))}>${node.children.map(renderTag).join('')}</em>`;
+  `<em${renderAttrs(removeAttrs(node.attributes, ['marker']))}>${renderChildren(node)}</em>`;
 const list = (node: Node): string =>
-  `<${node.attributes.ordered ? 'ol' : 'ul'}${renderAttrs(removeAttrs(node.attributes, ['ordered', 'marker']))}>${node.children.map(renderTag).join('')}</${node.attributes.ordered ? 'ol' : 'ul'}>`;
+  `<${node.attributes.ordered ? 'ol' : 'ul'}${renderAttrs(removeAttrs(node.attributes, ['ordered', 'marker']))}>${renderChildren(node)}</${node.attributes.ordered ? 'ol' : 'ul'}>`;
 const item = (node: Node): string =>
-  `<li${renderAttrs(node.attributes)}>${node.children.map(renderTag).join('')}</li>`;
+  `<li${renderAttrs(node.attributes)}>${renderChildren(node)}</li>`;
 const blockquote = (node: Node): string =>
-  `<blockquote${renderAttrs(node.attributes)}>${node.children.map(renderTag).join('')}</blockquote>`;
+  `<blockquote${renderAttrs(node.attributes)}>${renderChildren(node)}</blockquote>`;
 const softbreak = (_node: Node): string => ' ';
 const hardbreak = (_node: Node): string => '<br />';
 
 const unknown = (node: Node): string =>
-  `<div${renderAttrs(node.attributes)}>${node.children.map(renderTag).join('')}</div>`;
+  `<div${renderAttrs(node.attributes)}>${renderChildren(node)}</div>`;
 
 const tagFnMap = {
   document,
