@@ -42,11 +42,35 @@ export default async function Layout({
 }>) {
   const settings = await getCachedSettings();
   const social = await getCachedSocial();
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'AnimalShelter',
+    name: settings.title ?? 'EnciCat',
+    url: siteUrl,
+    logo: `${siteUrl}${settings.logo ?? ''}`,
+    email: settings.email,
+    description: settings.slogan,
+    sameAs: social?.socials_networks.map((network) => network.url),
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Villa del Prado',
+      addressRegion: 'Madrid',
+      addressCountry: 'ES',
+    },
+  };
+
   return (
     <html lang="es">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
+          }}
+        />
         <TopBar
           email={String(settings?.email)}
           phone={settings?.phone}
