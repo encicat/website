@@ -9,6 +9,7 @@ interface Props {
   titleExtra?: React.ReactNode;
   imgSrc?: string;
   url: string;
+  priority?: boolean;
 }
 
 export const Card: React.FC<Props> = ({
@@ -17,6 +18,7 @@ export const Card: React.FC<Props> = ({
   titleExtra,
   imgSrc = '',
   url = '',
+  priority = false,
 }) => (
   <div className="bg-white flex flex-col group shadow-sm">
     {imgSrc != null && imgSrc !== '' && (
@@ -26,6 +28,8 @@ export const Card: React.FC<Props> = ({
           alt={title}
           className="transition-all group-hover:scale-115 object-cover"
           fill
+          sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+          priority={priority}
         />
       </Link>
     )}

@@ -8,6 +8,7 @@ interface Props {
   gender: string;
   img: string;
   slug: string;
+  priority?: boolean;
 }
 
 export const AdoptionItem: React.FC<Props> = ({
@@ -16,6 +17,7 @@ export const AdoptionItem: React.FC<Props> = ({
   gender,
   img,
   slug,
+  priority = false,
 }) => {
   return (
     <Card
@@ -23,6 +25,7 @@ export const AdoptionItem: React.FC<Props> = ({
       titleExtra={<Gender gender={gender as 'male' | 'female'} iconOnly />}
       imgSrc={String(img)}
       url={`/adopciones/${slug}`}
+      priority={priority}
     >
       <Age birthdate={birthdate} plain />
     </Card>

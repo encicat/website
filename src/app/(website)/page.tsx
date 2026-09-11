@@ -41,7 +41,7 @@ export default async function HomePage() {
             subtitle={home_page?.adoption_subtitle}
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6 lg:px-0">
-            {adoptions.map(({ slug, entry: adoption }) => (
+            {adoptions.map(({ slug, entry: adoption }, index) => (
               <AdoptionItem
                 key={slug}
                 name={adoption.name}
@@ -49,6 +49,7 @@ export default async function HomePage() {
                 gender={adoption.gender}
                 img={adoption?.image ?? ''}
                 slug={slug}
+                priority={index === 0}
               />
             ))}
           </div>

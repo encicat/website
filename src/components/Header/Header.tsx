@@ -59,6 +59,7 @@ export const Header: React.FC<Props> = ({ logo = '', title = '' }) => {
               alt={`Logotipo de ${title}`}
               width={200}
               height={64}
+              priority
             />
           </Link>
         </div>

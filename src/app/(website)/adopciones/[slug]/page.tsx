@@ -62,6 +62,7 @@ export default async function AdoptionPage({
               <Image
                 src={adoption.image}
                 fill
+                sizes="(min-width: 768px) 50vw, 100vw"
                 className="object-contain"
                 alt={`Foto principal de ${adoption?.name}`}
               />
@@ -128,6 +129,7 @@ export default async function AdoptionPage({
               src={String(adoption.image)}
               alt={`Foto principal de la adopción de ${adoption.name}`}
               fill
+              sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
               className="object-cover"
             />
           </div>
@@ -140,6 +142,7 @@ export default async function AdoptionPage({
                 src={image}
                 alt={`Foto de ${adoption.name}`}
                 fill
+                sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
                 className="object-cover"
               />
             </div>

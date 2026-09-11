@@ -28,7 +28,7 @@ export default async function AdoptionsPage() {
         subtitle="Encuentra a tu nuevo compañero"
       />
       <Grid>
-        {adoptions.map(({ slug, entry: adoption }) => (
+        {adoptions.map(({ slug, entry: adoption }, index) => (
           <AdoptionItem
             key={slug}
             name={adoption.name}
@@ -36,6 +36,7 @@ export default async function AdoptionsPage() {
             gender={adoption.gender}
             img={adoption?.image ?? ''}
             slug={slug}
+            priority={index === 0}
           />
         ))}
       </Grid>
