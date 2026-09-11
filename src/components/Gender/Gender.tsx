@@ -17,8 +17,9 @@ export const Gender: React.FC<Props> = ({ gender, iconOnly = false }) => {
 
   if (iconOnly) {
     return (
-      <span title={text} aria-label={text} className="text-green-700">
+      <span title={text} className="text-green-700">
         {icon}
+        <span className="sr-only">{text}</span>
       </span>
     );
   }
