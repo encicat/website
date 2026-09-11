@@ -9,6 +9,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const terms_page = await reader.singletons.terms_page.read();
   return {
     title: terms_page?.title ?? 'Términos y condiciones',
+    alternates: { canonical: '/terminos-y-condiciones' },
   };
 }
 

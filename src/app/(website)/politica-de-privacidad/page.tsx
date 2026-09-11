@@ -9,6 +9,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const privacy_page = await reader.singletons.privacy_page.read();
   return {
     title: privacy_page?.title ?? 'Política de privacidad',
+    alternates: { canonical: '/politica-de-privacidad' },
   };
 }
 

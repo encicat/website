@@ -1,4 +1,5 @@
 import { compareDesc } from 'date-fns';
+import type { Metadata } from 'next';
 
 import { AdoptionItem } from '@/src/components/AdoptionItem';
 import { Button } from '@/src/components/Button';
@@ -7,6 +8,10 @@ import { Section } from '@/src/components/Section';
 import { SectionTitle } from '@/src/components/SectionTitle';
 import { getCachedSettings } from '@/src/helpers/cached';
 import { reader } from '@/src/helpers/reader';
+
+export const metadata: Metadata = {
+  alternates: { canonical: '/' },
+};
 
 export default async function HomePage() {
   const settings = await getCachedSettings();

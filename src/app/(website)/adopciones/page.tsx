@@ -10,6 +10,7 @@ import { reader } from '@/src/helpers/reader';
 export const metadata: Metadata = {
   title: 'Adopciones',
   description: 'Encuentra a tu nuevo compañero y dale un hogar.',
+  alternates: { canonical: '/adopciones' },
 };
 
 export default async function AdoptionsPage() {

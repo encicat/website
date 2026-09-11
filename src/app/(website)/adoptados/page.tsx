@@ -10,6 +10,7 @@ import { reader } from '@/src/helpers/reader';
 export const metadata: Metadata = {
   title: 'Adoptados',
   description: 'Los gatitos que ya han encontrado un hogar responsable.',
+  alternates: { canonical: '/adoptados' },
 };
 
 export default async function AdoptedPage() {

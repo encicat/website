@@ -68,6 +68,7 @@ export async function generateMetadata({
   return {
     title: page.title,
     description: page.summary,
+    alternates: { canonical: `/ayudales/${slug}` },
   };
 }
 

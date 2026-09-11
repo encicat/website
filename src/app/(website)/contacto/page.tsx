@@ -17,6 +17,7 @@ import { reader } from '@/src/helpers/reader';
 export const metadata: Metadata = {
   title: 'Contacto',
   description: 'Ponte en contacto con EnciCat.',
+  alternates: { canonical: '/contacto' },
 };
 
 export default async function ContactPage() {

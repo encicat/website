@@ -9,6 +9,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const about_page = await reader.singletons.about_page.read();
   return {
     title: about_page?.title ?? 'Quiénes somos',
+    alternates: { canonical: '/quienes-somos' },
   };
 }
 

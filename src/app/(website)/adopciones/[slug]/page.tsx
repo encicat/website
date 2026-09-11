@@ -32,6 +32,7 @@ export async function generateMetadata({
   return {
     title: `${adoption.name} busca hogar`,
     description: `Adopta a ${adoption.name} en EnciCat.`,
+    alternates: { canonical: `/adopciones/${slug}` },
     openGraph: adoption.image ? { images: [adoption.image] } : undefined,
   };
 }

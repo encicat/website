@@ -11,6 +11,7 @@ import { reader } from '@/src/helpers/reader';
 export const metadata: Metadata = {
   title: 'Cómo ayudarles',
   description: 'Descubre todas las formas en las que puedes ayudarles.',
+  alternates: { canonical: '/ayudales' },
 };
 
 export default async function HelpPage() {
