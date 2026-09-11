@@ -1,4 +1,3 @@
-import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
 
 import { Cookies } from '@/src/components/Cookies';
@@ -96,7 +95,6 @@ export default async function Layout({
         <Cookies>
           <DocumentRenderer document={settings.cookies_message} />
         </Cookies>
-        <SpeedInsights />
       </body>
     </html>
   );
