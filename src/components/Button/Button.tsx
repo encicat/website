@@ -8,6 +8,7 @@ interface Props {
   className?: string;
   isCircle?: boolean;
   onClick?: () => void;
+  ariaLabel?: string;
 }
 
 export const Button: React.FC<Props> = ({
@@ -16,13 +17,19 @@ export const Button: React.FC<Props> = ({
   onClick,
   className = '',
   isCircle = false,
+  ariaLabel,
 }) => {
   const baseClassName = `transition-all bg-green-700 hover:bg-green-800 rounded-3xl inline-block ${isCircle ? 'px-2' : 'px-6'} py-2 text-white font-bold`;
   const finalClassName = `${baseClassName} ${className}`;
 
   if (!href) {
     return (
-      <button type="button" className={finalClassName} onClick={onClick}>
+      <button
+        type="button"
+        className={finalClassName}
+        onClick={onClick}
+        aria-label={ariaLabel}
+      >
         {children}
       </button>
     );
@@ -41,6 +48,7 @@ export const Button: React.FC<Props> = ({
         : {})}
       className={finalClassName}
       onClick={onClick}
+      aria-label={ariaLabel}
     >
       {children}
     </Tag>

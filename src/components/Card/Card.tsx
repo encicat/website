@@ -41,7 +41,9 @@ export const Card: React.FC<Props> = ({
         {titleExtra}
       </div>
       {children && <div className="mb-4">{children}</div>}
-      <Button href={url}>Leer más...</Button>
+      <Button href={url} ariaLabel={`Leer más sobre ${title}`}>
+        Leer más...
+      </Button>
     </div>
   </div>
 );
