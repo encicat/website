@@ -34,6 +34,10 @@ const item = (node: Node): string =>
   `<li${renderAttrs(node.attributes)}>${renderChildren(node)}</li>`;
 const blockquote = (node: Node): string =>
   `<blockquote${renderAttrs(node.attributes)}>${renderChildren(node)}</blockquote>`;
+const code = (node: Node): string =>
+  `<code>${escapeHtml(node.attributes.content)}</code>`;
+const fence = (node: Node): string =>
+  `<pre><code>${escapeHtml(node.attributes.content)}</code></pre>`;
 const softbreak = (_node: Node): string => ' ';
 const hardbreak = (_node: Node): string => '<br />';
 
@@ -52,6 +56,8 @@ const tagFnMap = {
   list,
   item,
   blockquote,
+  code,
+  fence,
   softbreak,
   hardbreak,
 };

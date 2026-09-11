@@ -111,6 +111,19 @@ a.link:hover {
   margin-bottom: 0;
 }
 
+.markdoc code {
+  padding: 0.1em 0.35em;
+  border-radius: 0.25rem;
+  background: #f3f4f6;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.9em;
+}
+.markdoc pre code {
+  display: block;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
