@@ -18,11 +18,36 @@ import {
 } from 'react-share';
 
 export const networks = [
-  { key: 'whatsapp', Button: WhatsappShareButton, Icon: SiWhatsapp },
-  { key: 'telegram', Button: TelegramShareButton, Icon: SiTelegram },
-  { key: 'facebook', Button: FacebookShareButton, Icon: SiFacebook },
-  { key: 'twitter', Button: TwitterShareButton, Icon: SiX },
-  { key: 'threads', Button: ThreadsShareButton, Icon: SiThreads },
-  { key: 'bluesky', Button: BlueskyShareButton, Icon: SiBluesky },
-  { key: 'email', Button: EmailShareButton, Icon: Mail },
+  {
+    key: 'whatsapp',
+    label: 'WhatsApp',
+    Button: WhatsappShareButton,
+    Icon: SiWhatsapp,
+  },
+  {
+    key: 'telegram',
+    label: 'Telegram',
+    Button: TelegramShareButton,
+    Icon: SiTelegram,
+  },
+  {
+    key: 'facebook',
+    label: 'Facebook',
+    Button: FacebookShareButton,
+    Icon: SiFacebook,
+  },
+  { key: 'twitter', label: 'X', Button: TwitterShareButton, Icon: SiX },
+  {
+    key: 'threads',
+    label: 'Threads',
+    Button: ThreadsShareButton,
+    Icon: SiThreads,
+  },
+  {
+    key: 'bluesky',
+    label: 'Bluesky',
+    Button: BlueskyShareButton,
+    Icon: SiBluesky,
+  },
+  { key: 'email', label: 'Email', Button: EmailShareButton, Icon: Mail },
 ];
