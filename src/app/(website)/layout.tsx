@@ -71,6 +71,12 @@ export default async function Layout({
             __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
           }}
         />
+        <a
+          href="#contenido"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:rounded focus:bg-green-700 focus:px-4 focus:py-2 focus:text-white"
+        >
+          Saltar al contenido
+        </a>
         <header>
           <TopBar
             email={String(settings?.email)}
@@ -79,7 +85,7 @@ export default async function Layout({
           />
           <Header logo={settings?.logo} title={settings?.title} />
         </header>
-        <main>{children}</main>
+        <main id="contenido">{children}</main>
         <Footer
           pageTitle={settings?.title}
           logo={settings?.logo}
