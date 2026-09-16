@@ -161,10 +161,9 @@ export default config({
             { label: 'Hembra', value: 'female' },
           ],
         }),
-        breed: fields.select({
+        breed: fields.text({
           label: 'Raza',
-          defaultValue: 'mix',
-          options: [{ value: 'mix', label: 'Mixto' }],
+          defaultValue: 'Mixto',
         }),
         friendly: fields.select({
           label: 'Amistoso',
