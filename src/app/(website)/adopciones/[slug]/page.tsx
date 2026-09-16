@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
+import { AdoptionItem } from '@/src/components/AdoptionItem';
 import { Age } from '@/src/components/Age';
 import { Button } from '@/src/components/Button';
 import { Chip } from '@/src/components/Chip';
@@ -43,11 +44,17 @@ export default async function AdoptionPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const adoption = await reader.collections.adoptions.read(slug);
+  const adoptions = await reader.collections.adoptions.all();
+  const adoption = adoptions.find((item) => item.slug === slug)?.entry;
 
   if (!adoption) {
     notFound();
   }
+
+  const partners = adoptions.filter(
+    ({ slug: itemSlug, entry }) =>
+      itemSlug === adoption.partner || entry.partner === slug,
+  );
 
   return (
     <article>
@@ -107,6 +114,24 @@ export default async function AdoptionPage({
           <div className="mt-16 px-6 lg:px-0">
             <div className="text-2xl mb-8 uppercase">Su historia</div>
             <p>{adoption.adoption_text}</p>
+          </div>
+        )}
+
+        {partners.length > 0 && (
+          <div className="mt-16 px-6 lg:px-0">
+            <div className="text-2xl mb-8 uppercase">Adopción conjunta</div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {partners.map(({ slug: partnerSlug, entry: partner }) => (
+                <AdoptionItem
+                  key={partnerSlug}
+                  name={partner.name}
+                  birthdate={String(partner.birthdate)}
+                  gender={partner.gender}
+                  img={partner.image ?? ''}
+                  slug={partnerSlug}
+                />
+              ))}
+            </div>
           </div>
         )}
 

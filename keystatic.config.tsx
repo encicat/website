@@ -234,6 +234,12 @@ export default config({
           multiline: true,
           description: 'Solo se muestra en la ficha de los gatos adoptados',
         }),
+        partner: fields.relationship({
+          label: 'Adopción conjunta',
+          description:
+            'Otro gatito con el que se adopta conjuntamente. La ficha de ese gatito también mostrará esta adopción.',
+          collection: 'adoptions',
+        }),
         publishedAt: fields.date({ label: 'Fecha de publicación' }),
         content: fields.markdoc({ label: 'Contenido' }),
         images: fields.array(
